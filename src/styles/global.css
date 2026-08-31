@@ -3,6 +3,11 @@
 @import '@fontsource/inter/600.css' layer(base);
 @import '@fontsource/inter/700.css' layer(base);
 @import '@fontsource/inter/800.css' layer(base);
+@import '@fontsource/work-sans/500.css' layer(base);
+@import '@fontsource/work-sans/600.css' layer(base);
+@import '@fontsource/work-sans/700.css' layer(base);
+@import '@fontsource/work-sans/800.css' layer(base);
+@import '@fontsource/work-sans/900.css' layer(base);
 @import '@fontsource/jetbrains-mono/400.css' layer(base);
 @import '@fontsource/jetbrains-mono/500.css' layer(base);
 
@@ -34,6 +39,10 @@
 
   body {
     @apply bg-white text-zinc-900 font-sans antialiased dark:bg-zinc-950 dark:text-zinc-200;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black;
   }
 
   ::selection {
