@@ -43,6 +43,9 @@ const categoryLabel = CATEGORY_LABELS[category];
           src={coverImage}
           alt={coverImageAlt ?? title}
           loading="lazy"
+          decoding="async"
+          width="400"
+          height="225"
           class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <span class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent dark:from-zinc-950/40" />
@@ -81,6 +84,9 @@ const categoryLabel = CATEGORY_LABELS[category];
         alt={author.name}
         class="h-7 w-7 rounded-full border border-zinc-300 object-cover dark:border-zinc-700"
         loading="lazy"
+        decoding="async"
+        width="28"
+        height="28"
       />
       <div class="min-w-0">
         <a

@@ -37,6 +37,9 @@ const byCategory = CATEGORY_ORDER.map((cat) => ({
 const heroReading = getReadingTime(hero.body);
 ---
 
+<!-- Preload hero image for better LCP -->
+{hero.data.coverImage && <link rel="preload" as="image" href={hero.data.coverImage} />}
+
 <BaseLayout>
   <!-- HERO ---------------------------------------------------------->
   <section class="container-editorial pt-10 lg:pt-14">
@@ -50,7 +53,7 @@ const heroReading = getReadingTime(hero.body);
       <a href={`/posts/${hero.slug}/`} class="group relative block overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900" tabindex="-1" aria-hidden="true">
         {
           hero.data.coverImage ? (
-            <img src={hero.data.coverImage} alt={hero.data.coverImageAlt ?? hero.data.title} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" fetchpriority="high" />
+            <img src={hero.data.coverImage} alt={hero.data.coverImageAlt ?? hero.data.title} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" fetchpriority="high" loading="eager" decoding="async" width="800" height="500" />
           ) : (
             <div class="flex h-full min-h-[320px] w-full items-center justify-center bg-gradient-to-br from-zinc-200 to-zinc-400 dark:from-zinc-800 dark:to-zinc-950">
               <span class="font-serif text-7xl font-black text-zinc-300 dark:text-zinc-700">UNH</span>
@@ -72,7 +75,7 @@ const heroReading = getReadingTime(hero.body);
           {hero.data.description}
         </p>
         <div class="mt-7 flex items-center gap-3">
-          <img src={hero.data.author.avatar} alt={hero.data.author.name} class="h-10 w-10 rounded-full border border-zinc-300 object-cover dark:border-zinc-700" />
+          <img src={hero.data.author.avatar} alt={hero.data.author.name} class="h-10 w-10 rounded-full border border-zinc-300 object-cover dark:border-zinc-700" width="40" height="40" loading="lazy" decoding="async" />
           <div class="text-sm">
             <a
               href={`/author/${authorSlug(hero.data.author.name)}`}
