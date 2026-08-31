@@ -10,17 +10,18 @@
  *  - alt:    accessible alt text for the banner
  *  - width / height: intrinsic image dimensions
  */
-export const ads = [
-  {
-    image: '/images/hostpapa.webp',
-    link: 'https://www.hostpapa.com/?a_aid=10626',
-    alt: 'HostPapa web hosting',
-    width: 1104,
-    height: 736,
-  },
-];
+export const fallbackAd = {
+  image: '/images/hostpapa.webp',
+  link: 'https://www.hostpapa.com/?a_aid=10626',
+  alt: 'HostPapa web hosting',
+  width: 1104,
+  height: 736,
+};
+
+export const ads = [fallbackAd];
 
 // Pick a random ad from the list (deterministic per render call).
 export function pickAd() {
-  return ads[Math.floor(Math.random() * ads.length)];
+  const validAds = Array.isArray(ads) && ads.length > 0 ? ads : [fallbackAd];
+  return validAds[Math.floor(Math.random() * validAds.length)] ?? fallbackAd;
 }

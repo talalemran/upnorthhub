@@ -9,9 +9,11 @@
  * article has at least 4 paragraphs), so it lands roughly in the
  * middle of the body without touching headings or the TOC.
  */
-import { pickAd } from '../data/ads.mjs';
+import { pickAd, fallbackAd } from '../data/ads.mjs';
 
 function buildAdHast(ad) {
+  const safeAd = ad ?? fallbackAd;
+
   return {
     type: 'element',
     tagName: 'div',
@@ -37,7 +39,7 @@ function buildAdHast(ad) {
         type: 'element',
         tagName: 'a',
         properties: {
-          href: ad.link,
+          href: safeAd.link,
           target: '_blank',
           rel: 'noopener sponsored nofollow',
           className: [
@@ -53,10 +55,10 @@ function buildAdHast(ad) {
             type: 'element',
             tagName: 'img',
             properties: {
-              src: ad.image,
-              alt: ad.alt,
-              width: ad.width,
-              height: ad.height,
+              src: safeAd.image,
+              alt: safeAd.alt,
+              width: safeAd.width,
+              height: safeAd.height,
               loading: 'lazy',
               className: ['mx-auto', 'block', 'w-full', 'max-w-2xl', 'h-auto'],
             },
@@ -72,17 +74,23 @@ export default function rehypeInsertAd() {
   return (tree) => {
     const ad = pickAd();
     const adNode = buildAdHast(ad);
+    const children = Array.isArray(tree.children) ? tree.children : [];
 
-    const children = tree.children || [];
+    if (children.length === 0) {
+      return;
+    }
+
     const pIndices = [];
     children.forEach((node, i) => {
-      if (node.type === 'element' && node.tagName === 'p') pIndices.push(i);
+      if (node?.type === 'element' && node.tagName === 'p') pIndices.push(i);
     });
 
-    // Only inject when there's enough body to split sensibly.
-    if (pIndices.length < 4) return;
+    if (pIndices.length === 0) {
+      children.push(adNode);
+      return;
+    }
 
-    const mid = pIndices[Math.floor(pIndices.length / 2)];
+    const mid = pIndices[Math.min(Math.floor(pIndices.length / 2), pIndices.length - 1)];
     children.splice(mid + 1, 0, adNode);
   };
 }

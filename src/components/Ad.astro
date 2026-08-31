@@ -5,9 +5,9 @@
  * Used in the article sidebar; the in-article middle placement is handled
  * automatically by the rehype-insert-ad plugin (same config).
  */
-import { pickAd } from '../data/ads.mjs';
+import { pickAd, fallbackAd } from '../data/ads.mjs';
 
-const ad = pickAd();
+const ad = pickAd() ?? fallbackAd;
 ---
 
 <div class="article-ad my-10 text-center not-prose">
