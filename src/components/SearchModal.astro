@@ -1,0 +1,299 @@
+---
+/**
+ * SearchModal.astro
+ * ------------------------------------------------------------------
+ * Instant, client-side search overlay powered by Fuse.js.
+ *
+ * Behaviour:
+ *  - Opens on Cmd/Ctrl+K, "/" or the header search trigger (custom event
+ *    `open-search`). Also reachable as a full page at /search.
+ *  - Lazily fetches the static search index from /api/search.json on first
+ *    open (then caches it for the session).
+ *  - Full-text + metadata fuzzy search across title, description, category,
+ *    tags and author — no page reloads.
+ *  - Live results with highlighted titles, category badge, date and link.
+ *  - Keyboard friendly: ↑/↓ to move, Enter to open, Esc to close.
+ *
+ * The component is rendered once (in BaseLayout) and reused site-wide.
+ */
+import type { SearchDoc } from '../lib/search';
+---
+
+<div
+  id="search-modal"
+  class="fixed inset-0 z-50 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Search UpNorthHub"
+>
+  <!-- Backdrop -->
+  <button
+    type="button"
+    id="search-backdrop"
+    class="absolute inset-0 bg-zinc-950/80 backdrop-blur-sm"
+    aria-label="Close search"
+    tabindex="-1"
+  ></button>
+
+  <!-- Panel -->
+  <div
+    class="absolute left-1/2 top-[12vh] w-[92vw] max-w-2xl -translate-x-1/2 animate-scale-in overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl shadow-black/20 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-black/60"
+  >
+    <!-- Input row -->
+    <div class="flex items-center gap-3 border-b border-zinc-200 px-4 dark:border-zinc-800">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-5 w-5 shrink-0 text-zinc-500"
+        aria-hidden="true"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+      <input
+        id="search-input"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Search articles, tags, topics…"
+        class="w-full bg-transparent py-4 text-base text-zinc-900 placeholder-zinc-400 focus:outline-none dark:text-white dark:placeholder-zinc-500"
+        aria-label="Search query"
+      />
+      <kbd class="hidden rounded border border-zinc-300 bg-zinc-200 px-1.5 py-0.5 text-[10px] text-zinc-500 sm:inline-block dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+        >ESC</kbd
+      >
+    </div>
+
+    <!-- Results / status -->
+    <div id="search-results" class="max-h-[60vh] overflow-y-auto">
+      <div id="search-empty" class="px-4 py-10 text-center text-sm text-zinc-500">
+        Start typing to search the magazine.
+      </div>
+    </div>
+
+    <!-- Footer hint -->
+    <div
+      class="flex items-center justify-between border-t border-zinc-200 px-4 py-2 text-[11px] text-zinc-500 dark:border-zinc-800"
+    >
+      <span class="flex items-center gap-2">
+        <kbd class="rounded border border-zinc-300 bg-zinc-200 px-1.5 py-0.5 dark:border-zinc-700 dark:bg-zinc-800">↑</kbd>
+        <kbd class="rounded border border-zinc-300 bg-zinc-200 px-1.5 py-0.5 dark:border-zinc-700 dark:bg-zinc-800">↓</kbd>
+        to navigate
+      </span>
+      <a href="/search" id="search-advanced" class="link-underline hover:text-accent"
+        >Advanced search →</a
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  import Fuse, { type IFuseOptions, type RangeTuple, type FuseResult } from 'fuse.js';
+  import type { SearchDoc } from '../lib/search';
+
+  const modal = document.getElementById('search-modal') as HTMLDivElement;
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const resultsEl = document.getElementById('search-results') as HTMLDivElement;
+  const emptyEl = document.getElementById('search-empty') as HTMLDivElement;
+  const backdrop = document.getElementById('search-backdrop') as HTMLButtonElement;
+
+  let fuse: Fuse<SearchDoc> | null = null;
+  let cache: SearchDoc[] | null = null;
+  let activeIndex = -1;
+  let currentDocs: SearchDoc[] = [];
+
+  const fuseOptions: IFuseOptions<SearchDoc> = {
+    includeMatches: true,
+    includeScore: true,
+    ignoreLocation: true,
+    threshold: 0.35,
+    minMatchCharLength: 2,
+    keys: [
+      { name: 'title', weight: 0.4 },
+      { name: 'description', weight: 0.25 },
+      { name: 'categoryLabel', weight: 0.15 },
+      { name: 'tags', weight: 0.15 },
+      { name: 'author', weight: 0.05 },
+    ],
+  };
+
+  async function loadIndex(): Promise<SearchDoc[]> {
+    if (cache) return cache;
+    try {
+      const res = await fetch('/api/search.json');
+      cache = (await res.json()) as SearchDoc[];
+    } catch {
+      cache = [];
+    }
+    fuse = new Fuse(cache, fuseOptions);
+    return cache;
+  }
+
+  function escapeHtml(s: string): string {
+    return s.replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string)
+    );
+  }
+
+  /** Wrap Fuse match indices in <mark> for a given field. */
+  function highlight(text: string, indices?: readonly RangeTuple[]): string {
+    if (!indices || indices.length === 0) return escapeHtml(text);
+    const out: string[] = [];
+    let cursor = 0;
+    for (const [start, end] of [...indices].sort((a, b) => a[0] - b[0])) {
+      out.push(escapeHtml(text.slice(cursor, start)));
+      out.push('<mark>' + escapeHtml(text.slice(start, end + 1)) + '</mark>');
+      cursor = end + 1;
+    }
+    out.push(escapeHtml(text.slice(cursor)));
+    return out.join('');
+  }
+
+  const fmtDate = (iso: string) =>
+    new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(
+      new Date(iso)
+    );
+
+  function render(docs: SearchDoc[]): void {
+    currentDocs = docs;
+    activeIndex = docs.length ? 0 : -1;
+
+    if (!input.value.trim()) {
+      resultsEl.innerHTML = '';
+      resultsEl.appendChild(emptyEl);
+      emptyEl.classList.remove('hidden');
+      return;
+    }
+    if (docs.length === 0) {
+      resultsEl.innerHTML =
+        '<div class="px-4 py-10 text-center text-sm text-zinc-500">No results found.</div>';
+      return;
+    }
+
+    const items = docs
+      .map((doc, i) => {
+        const titleMatch = doc && (matchesFor(doc, 'title'));
+        const descMatch = matchesFor(doc, 'description');
+        const titleHtml = highlight(doc.title, titleMatch);
+        const descHtml = highlight(doc.description, descMatch);
+        return `
+        <a
+          href="${doc.url}"
+          data-index="${i}"
+          class="search-result flex gap-4 border-b border-zinc-200 px-4 py-3 transition-colors dark:border-zinc-800/70 ${
+            i === activeIndex ? 'bg-zinc-200 dark:bg-zinc-800/60' : 'hover:bg-zinc-100 dark:hover:bg-zinc-800/40'
+          }"
+        >
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2">
+              <span class="badge badge-accent">${escapeHtml(doc.categoryLabel)}</span>
+              <span class="text-xs text-zinc-500">${fmtDate(doc.pubDate)}</span>
+            </div>
+            <h3 class="mt-1 truncate text-sm font-semibold text-zinc-900 dark:text-white">${titleHtml}</h3>
+            <p class="mt-0.5 line-clamp-2 text-xs text-zinc-600 dark:text-zinc-200">${descHtml}</p>
+            <p class="mt-1 text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-300">${escapeHtml(
+              doc.author
+            )}</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-zinc-400 dark:text-zinc-300" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </a>`;
+      })
+      .join('');
+    resultsEl.innerHTML = items;
+  }
+
+  function matchesFor(doc: SearchDoc, key: string): RangeTuple[] | undefined {
+    if (!lastResults) return undefined;
+    const r = lastResults.find((x) => x.item.url === doc.url);
+    const m = r?.matches?.find((mm) => mm.key === key);
+    return m?.indices as RangeTuple[] | undefined;
+  }
+
+  let lastResults: FuseResult<SearchDoc>[] = [];
+
+  function runSearch(q: string): void {
+    if (!fuse) return;
+    const query = q.trim();
+    if (!query) {
+      lastResults = [];
+      render([]);
+      return;
+    }
+    lastResults = fuse.search(query).slice(0, 8);
+    render(lastResults.map((r) => r.item));
+  }
+
+  function openModal(): void {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    input.value = '';
+    render([]);
+    input.focus();
+    void loadIndex();
+  }
+
+  function closeModal(): void {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  // Keep arrow navigation state in sync with DOM hover.
+  resultsEl?.addEventListener('mousemove', (e) => {
+    const t = (e.target as HTMLElement).closest('[data-index]') as HTMLElement | null;
+    if (t) {
+      const idx = Number(t.dataset.index);
+      if (idx !== activeIndex) {
+        activeIndex = idx;
+        updateActive();
+      }
+    }
+  });
+
+  function updateActive(): void {
+    resultsEl?.querySelectorAll('.search-result').forEach((el, i) => {
+      const on = i === activeIndex;
+      el.classList.toggle('bg-zinc-200', on);
+      el.classList.toggle('dark:bg-zinc-800/60', on);
+      el.classList.toggle('hover:bg-zinc-100', !on);
+      el.classList.toggle('dark:hover:bg-zinc-800/40', !on);
+      if (on) el.setAttribute('aria-current', 'true');
+      else el.removeAttribute('aria-current');
+    });
+  }
+
+  // Events
+  document.addEventListener('open-search', openModal);
+  backdrop?.addEventListener('click', closeModal);
+  input?.addEventListener('input', (e) => runSearch((e.target as HTMLInputElement).value));
+
+  window.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('hidden')) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeModal();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, currentDocs.length - 1);
+      updateActive();
+      scrollActiveIntoView();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      updateActive();
+      scrollActiveIntoView();
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      e.preventDefault();
+      window.location.href = currentDocs[activeIndex].url;
+    }
+  });
+
+  function scrollActiveIntoView(): void {
+    const el = resultsEl?.querySelector('[aria-current="true"]') as HTMLElement | null;
+    el?.scrollIntoView({ block: 'nearest' });
+  }
+</script>

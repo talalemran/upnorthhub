@@ -1,0 +1,131 @@
+---
+/**
+ * index.astro — UpNorthHub magazine cover.
+ *  - Hero: flagship featured article (split grid).
+ *  - Secondary: responsive 3-column latest grid.
+ *  - Category blocks: top articles per section.
+ *  - Newsletter / workflow callout.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import {
+  CATEGORY_ORDER,
+  CATEGORY_LABELS,
+  CATEGORY_DESCRIPTIONS,
+  getReadingTime,
+  formatDate,
+  authorSlug,
+} from '../lib/posts';
+
+const all = (await getCollection('posts')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const featured = all.find((p) => p.data.featured) ?? all[0];
+const hero = featured;
+const rest = all.filter((p) => p.slug !== hero.slug).slice(0, 6);
+
+// Top 3 posts per category (excluding the hero).
+const byCategory = CATEGORY_ORDER.map((cat) => ({
+  slug: cat,
+  label: CATEGORY_LABELS[cat],
+  description: CATEGORY_DESCRIPTIONS[cat],
+  posts: all.filter((p) => p.data.category === cat && p.slug !== hero.slug).slice(0, 3),
+}));
+
+const heroReading = getReadingTime(hero.body);
+---
+
+<BaseLayout>
+  <!-- HERO ---------------------------------------------------------->
+  <section class="container-editorial pt-10 lg:pt-14">
+    <div class="flex items-center gap-3">
+      <span class="h-px w-8 bg-accent"></span>
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-accent">The Cover Story</span>
+    </div>
+
+    <div class="mt-6 grid items-stretch gap-8 lg:grid-cols-2">
+      <!-- Visual -->
+      <a href={`/posts/${hero.slug}/`} class="group relative block overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900" tabindex="-1" aria-hidden="true">
+        {
+          hero.data.coverImage ? (
+            <img src={hero.data.coverImage} alt={hero.data.coverImageAlt ?? hero.data.title} class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          ) : (
+            <div class="flex h-full min-h-[320px] w-full items-center justify-center bg-gradient-to-br from-zinc-200 to-zinc-400 dark:from-zinc-800 dark:to-zinc-950">
+              <span class="font-serif text-7xl font-black text-zinc-300 dark:text-zinc-700">UNH</span>
+            </div>
+          )
+        }
+        <span class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-transparent to-transparent dark:from-zinc-950/70" />
+      </a>
+
+      <!-- Editorial -->
+      <div class="flex flex-col justify-center">
+        <a href={`/category/${hero.data.category}`} class="link-underline w-fit text-sm font-semibold uppercase tracking-wider text-accent">
+          {CATEGORY_LABELS[hero.data.category]}
+        </a>
+        <h1 class="mt-3 font-serif text-4xl font-black leading-[1.05] text-zinc-900 text-balance dark:text-white sm:text-5xl lg:text-6xl">
+          <a href={`/posts/${hero.slug}/`} class="hover:!text-accent">{hero.data.title}</a>
+        </h1>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-zinc-600 text-pretty dark:text-white">
+          {hero.data.description}
+        </p>
+        <div class="mt-7 flex items-center gap-3">
+          <img src={hero.data.author.avatar} alt={hero.data.author.name} class="h-10 w-10 rounded-full border border-zinc-300 object-cover dark:border-zinc-700" />
+          <div class="text-sm">
+            <a
+              href={`/author/${authorSlug(hero.data.author.name)}`}
+              class="link-underline font-medium text-zinc-800 hover:!text-accent dark:text-white"
+            >
+              {hero.data.author.name}
+            </a>
+            <p class="text-xs text-zinc-500 dark:text-white">{hero.data.author.role} · {formatDate(hero.data.pubDate)} · {heroReading} min read</p>
+          </div>
+        </div>
+        <a
+          href={`/posts/${hero.slug}/`}
+          class="btn-cover mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-yellow-300"
+        >
+          Read the cover story
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST GRID --------------------------------------------------->
+  <section class="container-editorial mt-16 lg:mt-24">
+    <div class="flex items-end justify-between border-b border-zinc-800 pb-4">
+      <h2 class="font-serif text-2xl font-bold text-zinc-900 dark:text-white">Latest Dispatches</h2>
+      <a href="/search" class="link-underline text-sm text-zinc-600 hover:text-accent dark:text-white">Browse all →</a>
+    </div>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {rest.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+
+  <!-- CATEGORY BLOCKS ----------------------------------------------->
+  {
+    byCategory.map((block) => (
+      <section class="container-editorial mt-16 lg:mt-24">
+        <div class="flex items-end justify-between border-b border-zinc-200 pb-4 dark:border-zinc-800">
+          <div>
+          <a href={`/category/${block.slug}`} class="link-underline font-serif text-2xl font-bold text-zinc-900 hover:text-accent dark:text-white">
+            {block.label}
+          </a>
+          <p class="mt-1 max-w-2xl text-sm text-zinc-500 dark:text-white">{block.description}</p>
+        </div>
+        <a href={`/category/${block.slug}`} class="hidden text-sm text-zinc-600 hover:text-accent dark:text-white sm:inline">View section →</a>
+        </div>
+        {block.posts.length > 0 ? (
+          <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {block.posts.map((post) => <PostCard post={post} showExcerpt={false} />)}
+          </div>
+        ) : (
+          <p class="mt-8 text-sm text-zinc-600 dark:text-white">No articles in this section yet.</p>
+        )}
+      </section>
+    ))
+  }
+</BaseLayout>

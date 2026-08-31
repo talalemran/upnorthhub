@@ -1,0 +1,137 @@
+---
+/**
+ * sitemap.astro — Human-readable HTML sitemap.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  CATEGORY_ORDER,
+  CATEGORY_LABELS,
+  getUniqueAuthors,
+  authorSlug,
+} from '../lib/posts';
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const authors = getUniqueAuthors(posts);
+
+const tagSet = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    tagSet.set(tag, (tagSet.get(tag) ?? 0) + 1);
+  }
+}
+const tags = Array.from(tagSet.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+const pages = [
+  { name: 'Home', url: '/' },
+  { name: 'About', url: '/about' },
+  { name: 'Contact', url: '/contact' },
+  { name: 'Search', url: '/search' },
+  { name: 'All Tags', url: '/tags' },
+  { name: 'Sitemap', url: '/sitemap' },
+];
+---
+
+<BaseLayout
+  title="Sitemap"
+  description="A full index of UpNorthHub — sections, tags, authors and every article."
+  breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Sitemap', url: '/sitemap' }]}
+>
+  <div class="container-editorial py-12 lg:py-16">
+    <header class="border-b border-zinc-200 pb-8 dark:border-zinc-800">
+      <span class="badge badge-accent">Index</span>
+      <h1 class="mt-4 font-serif text-4xl font-black text-zinc-900 dark:text-white sm:text-5xl">
+        Sitemap
+      </h1>
+      <p class="mt-3 text-zinc-600 dark:text-zinc-200">
+        Every section, tag, author and article on UpNorthHub. Prefer machine-readable?
+        Grab the <a href="/sitemap.xml" class="link-underline text-accent">XML sitemap</a> or
+        the <a href="/rss.xml" class="link-underline text-accent">RSS feed</a>.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-2">
+      <!-- Sections -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Sections</h2>
+        <ul class="mt-4 space-y-2">
+          {
+            CATEGORY_ORDER.map((c) => (
+              <li>
+                <a href={`/category/${c}`} class="link-underline text-zinc-800 hover:text-accent dark:text-zinc-200">
+                  {CATEGORY_LABELS[c]}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- Authors -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Authors</h2>
+        <ul class="mt-4 space-y-2">
+          {
+            authors.map((a) => (
+              <li>
+                <a href={`/author/${authorSlug(a.name)}`} class="link-underline text-zinc-800 hover:text-accent dark:text-zinc-200">
+                  {a.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+
+    <!-- Pages -->
+    <section class="mt-10">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Pages</h2>
+      <ul class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          pages.map((p) => (
+            <li>
+              <a href={p.url} class="link-underline text-zinc-800 hover:text-accent dark:text-zinc-200">
+                {p.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Tags -->
+    <section class="mt-10">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Tags</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {
+          tags.map(([tag, count]) => (
+            <a href={`/tags/${encodeURIComponent(tag.toLowerCase())}`} class="badge hover:border-accent/60 hover:text-accent">
+              #{tag} <span class="text-zinc-500">({count})</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- All articles -->
+    <section class="mt-10">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-accent">All articles</h2>
+      <ul class="mt-4 divide-y divide-zinc-200 dark:divide-zinc-800">
+        {
+          posts.map((post) => (
+            <li class="flex flex-wrap items-baseline justify-between gap-2 py-3">
+              <a href={`/posts/${post.slug}/`} class="link-underline text-zinc-800 hover:text-accent dark:text-zinc-200">
+                {post.data.title}
+              </a>
+              <span class="text-xs text-zinc-500">{CATEGORY_LABELS[post.data.category]}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

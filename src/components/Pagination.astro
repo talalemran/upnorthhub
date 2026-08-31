@@ -1,0 +1,46 @@
+---
+/**
+ * Pagination.astro — Reusable pagination controls for archive pages.
+ */
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+if (totalPages <= 1) return null;
+
+function pageUrl(p: number): string {
+  if (p === 1) return baseUrl;
+  return `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}${p}`;
+}
+---
+
+<nav class="mt-12 flex items-center justify-center gap-2" aria-label="Pagination">
+  {
+    currentPage > 1 && (
+      <a href={pageUrl(currentPage - 1)} class="badge hover:border-accent hover:text-accent">
+        ← Prev
+      </a>
+    )
+  }
+  {
+    Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+      <a
+        href={pageUrl(p)}
+        class:list={['badge', p === currentPage ? 'badge-accent' : 'hover:border-accent hover:text-accent']}
+        aria-current={p === currentPage ? 'page' : undefined}
+      >
+        {p}
+      </a>
+    ))
+  }
+  {
+    currentPage < totalPages && (
+      <a href={pageUrl(currentPage + 1)} class="badge hover:border-accent hover:text-accent">
+        Next →
+      </a>
+    )
+  }
+</nav>

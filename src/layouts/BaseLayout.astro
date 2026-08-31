@@ -1,0 +1,69 @@
+---
+/**
+ * BaseLayout.astro
+ * ------------------------------------------------------------------
+ * High-contrast B&W editorial wrapper used by every page.
+ *  - Dark mode by default (with a persisted light-mode toggle).
+ *  - Sticky header with search trigger.
+ *  - Global <SEO> (OG / Twitter / JSON-LD).
+ *  - Multi-column magazine footer.
+ *  - Site-wide client-side search modal.
+ */
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SearchModal from '../components/SearchModal.astro';
+import { SITE } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  canonical?: string;
+  noindex?: boolean;
+  pubDate?: Date;
+  updatedDate?: Date;
+  authorName?: string;
+  category?: string;
+  tags?: string[];
+  breadcrumbs?: { name: string; url: string }[];
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Apply persisted theme before paint (default = light). -->
+    <script is:inline>
+      (function () {
+        try {
+          if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO {...props} />
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-200">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-zinc-950"
+      >Skip to content</a
+    >
+    <Header />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <SearchModal />
+  </body>
+</html>

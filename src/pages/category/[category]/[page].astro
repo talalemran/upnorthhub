@@ -1,0 +1,61 @@
+---
+/**
+ * category/[category]/[page].astro — Category feed, page 2+.
+ */
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import Pagination from '../../../components/Pagination.astro';
+import { CATEGORY_ORDER, CATEGORY_LABELS, CATEGORY_DESCRIPTIONS } from '../../../lib/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('posts');
+  const routes: any[] = [];
+  for (const cat of CATEGORY_ORDER) {
+    const catPosts = posts
+      .filter((p) => p.data.category === cat)
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+    const totalPages = Math.ceil(catPosts.length / 9);
+    for (let p = 2; p <= totalPages; p++) {
+      const start = (p - 1) * 9;
+      routes.push({
+        params: { category: cat, page: String(p) },
+        props: {
+          category: cat,
+          posts: catPosts.slice(start, start + 9),
+          currentPage: p,
+          totalPages,
+          totalItems: catPosts.length,
+        },
+      });
+    }
+  }
+  return routes;
+}) satisfies GetStaticPaths;
+
+const { category } = Astro.params;
+const { posts, currentPage, totalPages, totalItems } = Astro.props;
+---
+
+<BaseLayout
+  title={`${CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]} — Page ${currentPage}`}
+  description={CATEGORY_DESCRIPTIONS[category as keyof typeof CATEGORY_DESCRIPTIONS]}
+  breadcrumbs={[{ name: 'Home', url: '/' }, { name: CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS], url: `/category/${category}` }]}
+>
+  <div class="container-editorial py-12 lg:py-16">
+    <header class="border-b border-zinc-200 pb-8 dark:border-zinc-800">
+      <span class="badge badge-accent">{totalItems} articles</span>
+      <h1 class="mt-4 font-serif text-4xl font-black text-zinc-900 sm:text-5xl dark:text-white">
+        {CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]}
+      </h1>
+      <p class="mt-3 max-w-2xl text-zinc-600 dark:text-zinc-200">{CATEGORY_DESCRIPTIONS[category as keyof typeof CATEGORY_DESCRIPTIONS]}</p>
+    </header>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+
+    <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/category/${category}`} />
+  </div>
+</BaseLayout>

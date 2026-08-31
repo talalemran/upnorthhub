@@ -1,0 +1,174 @@
+---
+/**
+ * SEO.astro
+ * ------------------------------------------------------------------
+ * Centralised, production-grade head manager.
+ *  - Canonical URL
+ *  - Open Graph (OG) + article metadata
+ *  - Twitter Card (summary_large_image)
+ *  - JSON-LD structured data:
+ *      • Organization (always)
+ *      • WebSite (always, with SearchAction)
+ *      • BreadcrumbList (when `breadcrumbs` supplied)
+ *      • Article (when `type === 'article'` and article fields supplied)
+ *
+ * Include this component inside <head> of every page via BaseLayout.
+ */
+import { SITE } from '../lib/site';
+
+export interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
+export interface Props {
+  title?: string;
+  description?: string;
+  /** Absolute or root-relative image URL. */
+  image?: string;
+  /** Open Graph type. Defaults to "website". Use "article" for posts. */
+  type?: 'website' | 'article';
+  /** Override canonical. Defaults to current Astro.url. */
+  canonical?: string;
+  noindex?: boolean;
+  pubDate?: Date;
+  updatedDate?: Date;
+  authorName?: string;
+  category?: string;
+  tags?: string[];
+  breadcrumbs?: Breadcrumb[];
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = SITE.ogImage,
+  type = 'website',
+  canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString(),
+  noindex = false,
+  pubDate,
+  updatedDate,
+  authorName = SITE.author,
+  category,
+  tags = [],
+  breadcrumbs = [],
+} = Astro.props;
+
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} — Digital Magazine for Builders`;
+const ogImageUrl = new URL(image, Astro.site ?? Astro.url).toString();
+
+// ---- JSON-LD --------------------------------------------------------
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  url: SITE.url,
+  logo: new URL(SITE.logo, Astro.site ?? Astro.url).toString(),
+  sameAs: [
+    `https://twitter.com/${SITE.twitter.replace('@', '')}`,
+    `https://www.linkedin.com/company/${SITE.shortName.toLowerCase()}`,
+  ],
+  description: SITE.description,
+};
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${SITE.url}/search?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const breadcrumbLd =
+  breadcrumbs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          item: new URL(b.url, Astro.site ?? Astro.url).toString(),
+        })),
+      }
+    : null;
+
+const articleLd =
+  type === 'article' && pubDate
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description,
+        image: ogImageUrl,
+        datePublished: pubDate.toISOString(),
+        dateModified: (updatedDate ?? pubDate).toISOString(),
+        author: { '@type': 'Person', name: authorName },
+        publisher: {
+          '@type': 'Organization',
+          name: SITE.name,
+          logo: {
+            '@type': 'ImageObject',
+            url: new URL(SITE.logo, Astro.site ?? Astro.url).toString(),
+          },
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+        articleSection: category,
+        keywords: tags.join(', '),
+      }
+    : null;
+
+const jsonLd = [organizationLd, websiteLd, breadcrumbLd, articleLd].filter(Boolean);
+---
+
+<!-- Primary -->
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+{!noindex && <meta name="robots" content="index, follow" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:locale" content={SITE.locale} />
+{type === 'article' && pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
+{type === 'article' && updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+{type === 'article' && authorName && <meta property="article:author" content={authorName} />}
+{type === 'article' && category && <meta property="article:section" content={category} />}
+{type === 'article' && tags.map((t) => <meta property="article:tag" content={t} />)}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={SITE.twitter} />
+<meta name="twitter:creator" content={SITE.twitter} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<!-- RSS / Sitemap hints -->
+<link rel="sitemap" href="/sitemap.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${SITE.name} RSS`}
+  href={`${new URL('/rss.xml', Astro.site ?? Astro.url).toString()}`}
+/>
+
+<!-- JSON-LD -->
+{
+  jsonLd.map((schema) => (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  ))
+}

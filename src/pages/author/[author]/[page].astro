@@ -1,0 +1,72 @@
+---
+/**
+ * author/[author]/[page].astro — Author archive, page 2+.
+ */
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import Pagination from '../../../components/Pagination.astro';
+import { authorSlug, getUniqueAuthors, type AuthorInfo } from '../../../lib/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('posts');
+  const authors = getUniqueAuthors(posts);
+  const routes: any[] = [];
+  for (const author of authors) {
+    const authorPosts = posts
+      .filter((p) => p.data.author.name === author.name)
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+    const totalPages = Math.ceil(authorPosts.length / 9);
+    for (let p = 2; p <= totalPages; p++) {
+      const start = (p - 1) * 9;
+      routes.push({
+        params: { author: authorSlug(author.name), page: String(p) },
+        props: {
+          author,
+          posts: authorPosts.slice(start, start + 9),
+          currentPage: p,
+          totalPages,
+          totalItems: authorPosts.length,
+        },
+      });
+    }
+  }
+  return routes;
+}) satisfies GetStaticPaths;
+
+interface Props {
+  author: AuthorInfo;
+}
+
+const { author, posts, currentPage, totalPages, totalItems } = Astro.props;
+---
+
+<BaseLayout
+  title={`${author.name} — Page ${currentPage}`}
+  description={`Articles by ${author.name} (${author.role}) on UpNorthHub.`}
+  breadcrumbs={[{ name: 'Home', url: '/' }, { name: author.name, url: `/author/${authorSlug(author.name)}` }]}
+>
+  <div class="container-editorial py-12 lg:py-16">
+    <!-- Author header -->
+    <header class="flex flex-col items-center gap-5 border-b border-zinc-200 pb-10 text-center dark:border-zinc-800 sm:flex-row sm:items-center sm:text-left">
+      <img
+        src={author.avatar}
+        alt={author.name}
+        class="h-20 w-20 rounded-full border border-zinc-300 object-cover dark:border-zinc-700"
+      />
+      <div>
+        <h1 class="font-serif text-3xl font-black text-zinc-900 dark:text-white sm:text-4xl">{author.name}</h1>
+        <p class="mt-1 text-sm text-zinc-600 dark:text-white">{author.role}</p>
+        <span class="mt-2 badge badge-accent">{totalItems} articles</span>
+      </div>
+    </header>
+
+    <!-- Posts -->
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+
+    <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/author/${authorSlug(author.name)}`} />
+  </div>
+</BaseLayout>

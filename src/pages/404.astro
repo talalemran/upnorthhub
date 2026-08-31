@@ -1,0 +1,63 @@
+---
+/**
+ * 404.astro — Custom "not found" page, styled to match the magazine.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CATEGORY_ORDER, CATEGORY_LABELS } from '../lib/posts';
+
+const year = new Date().getUTCFullYear();
+---
+
+<BaseLayout
+  title="Page not found"
+  description="The page you were looking for has moved or never existed."
+  noindex={true}
+>
+  <section class="container-editorial flex min-h-[70vh] flex-col items-center justify-center py-20 text-center">
+    <span class="badge badge-accent">Error 404</span>
+    <h1 class="mt-6 font-serif text-7xl font-black leading-none text-zinc-900 dark:text-white sm:text-8xl">
+      4<span class="text-accent">0</span>4
+    </h1>
+    <p class="mt-6 max-w-md text-lg text-zinc-600 dark:text-zinc-200">
+      This page drifted north and got lost. Let's get you back to solid ground.
+    </p>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a
+        href="/"
+        class="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-yellow-300"
+      >
+        Back to the magazine
+      </a>
+      <button
+        type="button"
+        id="search-trigger"
+        class="inline-flex items-center justify-center rounded-md border border-zinc-300 bg-zinc-100 px-6 py-3 text-sm font-semibold text-zinc-700 transition-colors hover:border-accent/60 hover:text-accent dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-300"
+      >
+        Search the archive
+      </button>
+    </div>
+
+    <div class="mt-14 w-full max-w-2xl">
+      <p class="text-xs font-bold uppercase tracking-widest text-zinc-500">Or browse a section</p>
+      <div class="mt-4 flex flex-wrap justify-center gap-3">
+        {
+          CATEGORY_ORDER.map((c) => (
+            <a href={`/category/${c}`} class="badge hover:border-accent/60 hover:text-accent">
+              {CATEGORY_LABELS[c]}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="mt-16 text-xs text-zinc-500">© {year} UpNorthHub</p>
+  </section>
+</BaseLayout>
+
+<script>
+  // Wire the search button to open the global Command-K modal.
+  document.getElementById('search-trigger')?.addEventListener('click', () => {
+    document.dispatchEvent(new CustomEvent('open-search'));
+  });
+</script>

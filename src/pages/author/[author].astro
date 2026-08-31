@@ -1,0 +1,74 @@
+---
+/**
+ * author/[author].astro — Author archive, page 1.
+ */
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { authorSlug, getUniqueAuthors, type AuthorInfo } from '../../lib/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('posts');
+  const authors = getUniqueAuthors(posts);
+  return authors.map((author) => ({
+    params: { author: authorSlug(author.name) },
+    props: {
+      author,
+      posts: posts
+        .filter((p) => p.data.author.name === author.name)
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  author: AuthorInfo;
+}
+
+const { author, posts } = Astro.props;
+const total = posts.length;
+const SHOW = 9;
+const page1 = posts.slice(0, SHOW);
+const totalPages = Math.ceil(total / SHOW);
+---
+
+<BaseLayout
+  title={author.name}
+  description={`Articles by ${author.name} (${author.role}) on UpNorthHub.`}
+  breadcrumbs={[{ name: 'Home', url: '/' }, { name: author.name, url: `/author/${authorSlug(author.name)}` }]}
+>
+  <div class="container-editorial py-12 lg:py-16">
+    <!-- Author header -->
+    <header class="flex flex-col items-center gap-5 border-b border-zinc-200 pb-10 text-center dark:border-zinc-800 sm:flex-row sm:items-center sm:text-left">
+      <img
+        src={author.avatar}
+        alt={author.name}
+        class="h-20 w-20 rounded-full border border-zinc-300 object-cover dark:border-zinc-700"
+      />
+      <div>
+        <h1 class="font-serif text-3xl font-black text-zinc-900 dark:text-white sm:text-4xl">{author.name}</h1>
+        <p class="mt-1 text-sm text-zinc-600 dark:text-white">{author.role}</p>
+        <span class="mt-2 badge badge-accent">{total} articles</span>
+      </div>
+    </header>
+
+    <!-- Posts -->
+    {
+      page1.length > 0 ? (
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {page1.map((post) => <PostCard post={post} />)}
+        </div>
+      ) : (
+        <p class="mt-10 text-zinc-500">No articles published yet.</p>
+      )
+    }
+
+    {totalPages > 1 && (
+      <nav class="mt-12 flex items-center justify-center gap-2" aria-label="Pagination">
+        <span class="badge badge-accent">1</span>
+        <a href={`/author/${authorSlug(author.name)}/2`} class="badge hover:border-accent hover:text-accent">Next →</a>
+      </nav>
+    )}
+  </div>
+</BaseLayout>

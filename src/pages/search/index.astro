@@ -1,0 +1,115 @@
+---
+/**
+ * search/index.astro — Search landing page (page 1).
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Pagination from '../../components/Pagination.astro';
+import { CATEGORY_ORDER, CATEGORY_LABELS } from '../../lib/posts';
+import { paginate } from '../../lib/pagination';
+
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const page = paginate(allPosts, { page: 1, size: 9 });
+const posts = page.data;
+const initial = Astro.url.searchParams.get('q') ?? '';
+---
+
+<BaseLayout
+  title="Search"
+  description="Search the full UpNorthHub archive of articles on content creation, e-commerce, tools and gig work."
+  breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Search', url: '/search' }]}
+>
+  <div class="container-editorial py-12 lg:py-16">
+    <header class="border-b border-zinc-200 pb-8 dark:border-zinc-800">
+      <h1 class="font-serif text-4xl font-black text-zinc-900 sm:text-5xl dark:text-white">Search the archive</h1>
+      <div class="mt-3 flex items-center gap-3">
+        <span class="badge badge-accent">{allPosts.length} articles</span>
+        <p class="text-zinc-600 dark:text-zinc-200">
+          Press <kbd class="rounded border border-zinc-300 bg-zinc-200 px-1.5 py-0.5 text-xs dark:border-zinc-700 dark:bg-zinc-800">⌘K</kbd> anywhere for the quick finder.
+        </p>
+      </div>
+
+      <div class="mt-6 flex items-center gap-3 rounded-xl border border-zinc-300 bg-zinc-100 px-4 focus-within:border-accent/60 dark:border-zinc-800 dark:bg-zinc-900/40">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-zinc-500"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input
+          id="page-search"
+          type="text"
+          value={initial}
+          placeholder="Type to filter articles, tags, authors…"
+          autocomplete="off"
+          class="w-full bg-transparent py-4 text-base text-zinc-900 placeholder-zinc-400 focus:outline-none dark:text-white dark:placeholder-zinc-500"
+          aria-label="Filter articles"
+        />
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-2" id="cat-filters">
+        <button data-cat="all" class="badge badge-accent" aria-pressed="true">All</button>
+        {
+          CATEGORY_ORDER.map((c) => (
+            <button data-cat={c} class="badge" aria-pressed="false">{CATEGORY_LABELS[c]}</button>
+          ))
+        }
+      </div>
+    </header>
+
+    <p id="result-count" class="mt-6 text-sm text-zinc-500"></p>
+    <div id="results-grid" class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => (
+        <div
+          class="search-item"
+          data-title={post.data.title.toLowerCase()}
+          data-desc={post.data.description.toLowerCase()}
+          data-tags={post.data.tags.join(' ').toLowerCase()}
+          data-author={post.data.author.name.toLowerCase()}
+          data-category={post.data.category}
+        >
+          <PostCard post={post} showExcerpt={false} />
+        </div>
+      ))}
+    </div>
+    <p id="no-results" class="mt-10 hidden text-center text-zinc-500">No matching articles.</p>
+
+    <Pagination currentPage={page.current} totalPages={page.total} baseUrl="/search" />
+  </div>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('page-search') as HTMLInputElement;
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.search-item'));
+  const countEl = document.getElementById('result-count') as HTMLParagraphElement;
+  const noResults = document.getElementById('no-results') as HTMLElement;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('#cat-filters [data-cat]'));
+  let activeCat = 'all';
+
+  function apply(): void {
+    const q = input.value.trim().toLowerCase();
+    let visible = 0;
+    for (const el of items) {
+      const matchesCat = activeCat === 'all' || el.dataset.category === activeCat;
+      const hay = `${el.dataset.title} ${el.dataset.desc} ${el.dataset.tags} ${el.dataset.author}`;
+      const matchesQ = !q || hay.includes(q);
+      const show = matchesCat && matchesQ;
+      el.classList.toggle('hidden', !show);
+      if (show) visible++;
+    }
+    countEl.textContent = `${visible} article${visible === 1 ? '' : 's'}${q ? ` matching "${input.value.trim()}"` : ''}`;
+    noResults.classList.toggle('hidden', visible !== 0);
+  }
+
+  input?.addEventListener('input', apply);
+  chips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      activeCat = chip.dataset.cat || 'all';
+      chips.forEach((c) => {
+        const on = c === chip;
+        c.classList.toggle('badge-accent', on);
+        c.setAttribute('aria-pressed', String(on));
+      });
+      apply();
+    })
+  );
+  apply();
+</script>

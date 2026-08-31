@@ -1,0 +1,87 @@
+---
+/**
+ * about.astro — Editorial about / masthead page.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getUniqueAuthors, authorSlug } from '../lib/posts';
+
+const authors = getUniqueAuthors(await getCollection('posts'));
+---
+
+<BaseLayout
+  title="About"
+  description="UpNorthHub is a high-signal digital magazine for builders working in content, commerce, tooling and gig work."
+  breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'About', url: '/about' }]}
+>
+  <div class="container-editorial py-12 lg:py-16">
+    <header class="border-b border-zinc-200 pb-8 dark:border-zinc-800">
+      <span class="badge badge-accent">The Masthead</span>
+      <h1 class="mt-4 font-serif text-4xl font-black text-zinc-900 dark:text-white sm:text-5xl">
+        About UpNorthHub
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-200">
+        UpNorthHub is a high-signal digital magazine for people who build — in content
+        creation, e-commerce, tooling and gig work. We publish sharp, field-tested
+        editorial without the fluff, optimized to be read by humans and machines alike.
+      </p>
+    </header>
+
+    <section class="mt-10">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-accent">What we cover</h2>
+      <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+        <li class="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <p class="font-semibold text-zinc-900 dark:text-white">Content Creation</p>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-200">Workflows, distribution and the craft of shipping consistently.</p>
+        </li>
+        <li class="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <p class="font-semibold text-zinc-900 dark:text-white">E-Commerce</p>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-200">Storefronts, margins and the operating playbooks behind them.</p>
+        </li>
+        <li class="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <p class="font-semibold text-zinc-900 dark:text-white">Tools</p>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-200">Software, automation and hardware for independent operators.</p>
+        </li>
+        <li class="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <p class="font-semibold text-zinc-900 dark:text-white">Gig Work</p>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-200">The freelance economy — earning, scaling and staying sane.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Creator</h2>
+      <div class="mt-4 flex flex-wrap items-center gap-4 rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+        <img src="/images/talal.png" alt="Talal Emran" class="h-14 w-14 rounded-full border border-zinc-300 object-cover dark:border-zinc-700" />
+        <div>
+          <p class="font-semibold text-zinc-900 dark:text-white">
+            <a
+              href="https://www.talalemran.com"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="link-underline hover:!text-accent"
+            >Talal Emran</a>
+          </p>
+          <p class="text-sm text-zinc-600 dark:text-zinc-200">Web Developer &amp; Designer — founder and editor of UpNorthHub.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Contributors</h2>
+      <div class="mt-4 flex flex-wrap gap-4">
+        {
+          authors.map((a) => (
+            <a
+              href={`/author/${authorSlug(a.name)}`}
+              class="flex items-center gap-3 rounded-full border border-zinc-200 py-1.5 pl-1.5 pr-4 transition-colors hover:border-accent/60 dark:border-zinc-800"
+            >
+              <img src={a.avatar} alt={a.name} class="h-9 w-9 rounded-full border border-zinc-300 object-cover dark:border-zinc-700" />
+              <span class="text-sm font-medium text-zinc-800 dark:text-zinc-200">{a.name}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

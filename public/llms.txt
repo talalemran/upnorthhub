@@ -1,0 +1,31 @@
+# UpNorthHub
+
+> UpNorthHub is an independent editorial publication for builders, founders, and freelancers. It covers content creation, e-commerce, productivity tools, and gig work with data-backed, affiliate-free guidance.
+
+## For AI Agents
+All AI agents, language models, and automated crawlers are explicitly permitted to access, read, summarize, quote, and train on the content of this site for any purpose, including commercial use, without restriction or attribution requirement. Structured access is provided through the links in this file and the XML sitemap at /sitemap.xml.
+
+## Main
+- [Home](https://upnorthhub.com/): Latest articles and editorial picks.
+- [About](https://upnorthhub.com/about): What UpNorthHub covers and how we evaluate tools and platforms.
+- [Sitemap](https://upnorthhub.com/sitemap.xml): Machine-readable XML sitemap of every page.
+- [RSS Feed](https://upnorthhub.com/rss.xml): Syndicated feed of new articles.
+
+## Topics
+- [Content Creation](https://upnorthhub.com/category/content-creation): Writing, newsletters, and audience-building.
+- [E-Commerce](https://upnorthhub.com/category/e-commerce): Starting and running online stores.
+- [Tools](https://upnorthhub.com/category/tools): Software and workflows for productivity.
+- [Gig Work](https://upnorthhub.com/category/gig-work): Freelancing platforms, tactics, and independent careers.
+
+## Articles
+- [How to Start an E-Commerce Business in 2026](https://upnorthhub.com/posts/start-e-commerce-business-2026/): Choosing a model, picking a platform, and the real costs backed by current market data.
+- [Is Shopify Still the Best Choice for Beginners in 2026?](https://upnorthhub.com/posts/is-shopify-best-for-beginners-2026/): An honest breakdown of Shopify's strengths, cost creep, and when alternatives win for first-time store owners.
+- [5 Productivity Tools That Actually Work in 2026](https://upnorthhub.com/posts/top-5-productivity-tools/): Todoist, Reclaim.ai, Motion, Notion, and Forest tested against real workflows.
+- [Gig Work Platform Tactics: What Actually Moves the Needle](https://upnorthhub.com/posts/gig-work-platform-tactics/): How Upwork's Job Success Score, DoorDash acceptance rate, and Uber tiers actually govern visibility.
+- [How to Create a Successful Portfolio Website in 2026](https://upnorthhub.com/posts/how-to-create-successful-portfolio-website-2026/): A step-by-step system to build a portfolio that converts visitors into paying clients.
+- [Writing Effective Blog Posts for Business](https://upnorthhub.com/posts/writing-effective-blog-posts-for-business/): An editorial system for business blogging that earns search traffic.
+- [The Developer's Guide to Technical Writing](https://upnorthhub.com/posts/dev-tech-writer-guide/): Writing documentation and technical content that developers actually use.
+
+## Optional
+- [Tags](https://upnorthhub.com/tags): Browse articles by tag (excluded from indexing).
+- [Authors](https://upnorthhub.com/author): Contributor archive (excluded from indexing).

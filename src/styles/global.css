@@ -1,0 +1,124 @@
+@import '@fontsource/montserrat/300.css';
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/500.css';
+@import '@fontsource/montserrat/600.css';
+@import '@fontsource/montserrat/700.css';
+@import '@fontsource/montserrat/800.css';
+@import '@fontsource/montserrat/900.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    /* Slightly larger base size so all rem-based type/spacing scales up. */
+    font-size: 112.5%;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  /* Offset anchor jumps for the sticky header */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+
+  body {
+    @apply bg-white text-zinc-900 font-sans antialiased dark:bg-zinc-950 dark:text-zinc-200;
+  }
+
+  ::selection {
+    @apply bg-accent text-zinc-950;
+  }
+
+  /* Keep visited links the same colour as unvisited links. */
+  a:visited {
+    color: inherit;
+  }
+
+  /* Keep link hover colour identical to the resting link colour.
+     !important is required to beat Tailwind's hover:text-* utilities. */
+  a:hover {
+    color: currentColor !important;
+  }
+}
+
+@layer components {
+  .container-editorial {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .hairline {
+    @apply border border-zinc-200 dark:border-zinc-800;
+  }
+
+  /* Category / tag badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1 text-xs font-medium uppercase tracking-wider text-zinc-700 transition-colors dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-300;
+  }
+
+  .badge-accent {
+    @apply border-accent/40 bg-accent/10 text-yellow-700 dark:text-accent;
+  }
+
+  .badge:hover {
+    @apply border-accent/60 text-accent;
+  }
+
+  /* High-contrast link underline on hover */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300;
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Search highlight */
+  mark {
+    @apply bg-accent/30 text-zinc-900 dark:text-accent rounded-sm px-0.5;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Hide scrollbar for horizontal scroll areas */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Sponsored ad image: never show a border (overrides prose-img:border). */
+.article-ad img {
+  border: 0 !important;
+}
+
+/* "Read the cover story" button: keep text black (incl. hover) in both themes,
+   overriding the global a:hover { color: currentColor } rule. */
+.btn-cover,
+.btn-cover:hover {
+  color: #000 !important;
+}

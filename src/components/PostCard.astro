@@ -1,0 +1,100 @@
+---
+/**
+ * PostCard.astro
+ * Reusable editorial post card used in grids and category feeds.
+ */
+import type { Post } from '../lib/posts';
+import { CATEGORY_LABELS, getReadingTime, formatDate, authorSlug } from '../lib/posts';
+
+interface Props {
+  post: Post;
+  /** 'default' | 'feature' | 'compact' */
+  variant?: 'default' | 'feature' | 'compact';
+  showExcerpt?: boolean;
+}
+
+const { post, variant = 'default', showExcerpt = true } = Astro.props;
+const { title, description, pubDate, author, category, coverImage, coverImageAlt, featured } =
+  post.data;
+const href = `/posts/${post.slug}/`;
+const readingTime = getReadingTime(post.body);
+const categoryLabel = CATEGORY_LABELS[category];
+---
+
+<article
+  class:list={[
+    'group relative flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100/60 transition-all hover:border-accent/50 dark:border-zinc-800 dark:bg-zinc-900/30',
+    variant === 'feature' && 'md:flex-row',
+  ]}
+>
+  <!-- Cover -->
+  {
+    coverImage && (
+      <a
+        href={href}
+        class:list={[
+          'relative block overflow-hidden bg-zinc-200 dark:bg-zinc-800',
+          variant === 'feature' ? 'md:w-1/2' : 'aspect-[16/9] w-full',
+        ]}
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <img
+          src={coverImage}
+          alt={coverImageAlt ?? title}
+          loading="lazy"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <span class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent dark:from-zinc-950/40" />
+      </a>
+    )
+  }
+
+  <!-- Body -->
+  <div class:list={['flex flex-1 flex-col p-5', variant === 'feature' && 'md:w-1/2 md:justify-center md:p-8']}>
+    <div class="flex items-center gap-2">
+      <a href={`/category/${category}`} class="badge badge-accent">{categoryLabel}</a>
+      {featured && <span class="badge">Featured</span>}
+    </div>
+
+    <h3
+      class:list={[
+        'mt-3 font-serif font-bold leading-tight text-zinc-900 dark:text-white',
+        variant === 'feature' ? 'text-2xl sm:text-3xl' : 'text-lg',
+      ]}
+    >
+        <a href={href} class="link-underline after:!w-full hover:!text-accent">{title}</a>
+    </h3>
+
+    {
+      showExcerpt && (
+          <p class:list={['mt-2 text-sm leading-relaxed text-zinc-600 dark:text-white', variant === 'feature' ? 'line-clamp-4' : 'line-clamp-3']}>
+          {description}
+        </p>
+      )
+    }
+
+    <!-- Meta -->
+    <div class="mt-4 flex items-center gap-3 border-t border-zinc-200 pt-4 text-xs text-zinc-500 dark:border-zinc-800/70 dark:text-white">
+      <img
+        src={author.avatar}
+        alt={author.name}
+        class="h-7 w-7 rounded-full border border-zinc-300 object-cover dark:border-zinc-700"
+        loading="lazy"
+      />
+      <div class="min-w-0">
+        <a
+          href={`/author/${authorSlug(author.name)}`}
+          class="link-underline block truncate font-medium text-zinc-700 hover:!text-accent dark:text-white"
+        >
+          {author.name}
+        </a>
+        <p class="truncate text-[11px] text-zinc-500 dark:text-white">{author.role}</p>
+      </div>
+      <div class="ml-auto flex shrink-0 flex-col items-end">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <span>{readingTime} min read</span>
+      </div>
+    </div>
+  </div>
+</article>

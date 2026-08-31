@@ -1,0 +1,32 @@
+---
+/**
+ * Ad.astro — reusable sponsored ad unit.
+ * Reads the external `src/data/ads.mjs` config and renders a random ad.
+ * Used in the article sidebar; the in-article middle placement is handled
+ * automatically by the rehype-insert-ad plugin (same config).
+ */
+import { pickAd } from '../data/ads.mjs';
+
+const ad = pickAd();
+---
+
+<div class="article-ad my-10 text-center not-prose">
+  <span class="block mb-2 text-[11px] uppercase tracking-widest text-zinc-400 dark:text-zinc-300">
+    Advertisement
+  </span>
+  <a
+    href={ad.link}
+    target="_blank"
+    rel="noopener sponsored nofollow"
+    class="inline-block rounded-xl overflow-hidden transition hover:opacity-90"
+  >
+    <img
+      src={ad.image}
+      alt={ad.alt}
+      width={ad.width}
+      height={ad.height}
+      loading="lazy"
+      class="mx-auto block w-full max-w-2xl h-auto"
+    />
+  </a>
+</div>

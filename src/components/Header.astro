@@ -1,0 +1,186 @@
+---
+/**
+ * Header.astro
+ * Sticky, high-contrast B&W editorial masthead.
+ * Includes brand wordmark, category navigation, search trigger (Cmd/Ctrl+K),
+ * and a light/dark theme toggle. Dark mode is the default.
+ */
+import { SITE } from '../lib/site';
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-zinc-200 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:border-zinc-800 dark:bg-zinc-950/85 dark:supports-[backdrop-filter]:bg-zinc-950/70"
+>
+  <div class="container-editorial flex h-16 items-center justify-between gap-4">
+    <!-- Brand -->
+    <a href="/" class="group flex items-center gap-2" aria-label={`${SITE.name} home`}>
+      <span class="flex h-8 w-8 items-center justify-center rounded-sm bg-accent text-zinc-950">
+        <span class="font-serif text-lg font-black leading-none">U</span>
+      </span>
+      <span         class="font-serif text-xl font-black tracking-tight text-zinc-900 dark:text-white">
+        {SITE.name}
+      </span>
+    </a>
+
+    <!-- Primary nav (desktop) -->
+    <nav class="hidden items-center gap-6 lg:flex" aria-label="Primary">
+      {
+        SITE.nav.slice(0, 4).map((item) => (
+          <a
+            href={item.href}
+            class="link-underline text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-2">
+      <!-- Search trigger -->
+      <button
+        type="button"
+        id="search-trigger"
+        class="group flex items-center gap-2 rounded-md border border-zinc-200 bg-zinc-100 px-3 py-2 text-sm text-zinc-500 transition-colors hover:border-accent/60 hover:text-accent dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-200"
+        aria-label="Open search (Command or Control + K)"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <span class="hidden sm:inline">Search</span>
+        <kbd
+          class="hidden rounded border border-zinc-700 bg-zinc-800 px-1.5 text-[10px] font-semibold text-zinc-400 sm:inline-block"
+          >⌘K</kbd
+        >
+      </button>
+
+      <!-- Theme toggle -->
+      <button
+        type="button"
+        id="theme-toggle"
+        class="flex h-9 w-9 items-center justify-center rounded-md border border-zinc-200 bg-zinc-100 text-zinc-500 transition-colors hover:border-accent/60 hover:text-accent dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-200"
+        aria-label="Toggle color theme"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 dark:hidden"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="hidden h-4 w-4 dark:block"
+          aria-hidden="true"
+        >
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        id="mobile-menu-trigger"
+        class="flex h-9 w-9 items-center justify-center rounded-md border border-zinc-200 bg-zinc-100 text-zinc-700 transition-colors hover:border-accent/60 hover:text-accent dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-300 lg:hidden"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4"
+          aria-hidden="true"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav
+    id="mobile-menu"
+    class="hidden border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950 lg:hidden"
+    aria-label="Mobile"
+  >
+    <div class="container-editorial flex flex-col py-2">
+      {
+        SITE.nav.map((item) => (
+          <a
+            href={item.href}
+            class="border-b border-zinc-200 py-3 text-sm font-medium text-zinc-700 last:border-0 hover:text-accent dark:border-zinc-900 dark:text-zinc-300"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu
+  const menuTrigger = document.getElementById('mobile-menu-trigger');
+  const menu = document.getElementById('mobile-menu');
+  menuTrigger?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    menuTrigger.setAttribute('aria-expanded', String(open));
+  });
+
+  // Theme toggle — default is light, persisted to localStorage.
+  const root = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  if (localStorage.getItem('theme') === 'dark') root.classList.add('dark');
+
+  toggle?.addEventListener('click', () => {
+    const isDark = root.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Open search modal on Cmd/Ctrl+K or "/" and from the trigger button.
+  const openSearch = () => document.dispatchEvent(new CustomEvent('open-search'));
+  document.getElementById('search-trigger')?.addEventListener('click', openSearch);
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      openSearch();
+    }
+    if (e.key === '/' && !/^(INPUT|TEXTAREA)$/.test((e.target as HTMLElement)?.tagName)) {
+      e.preventDefault();
+      openSearch();
+    }
+  });
+</script>

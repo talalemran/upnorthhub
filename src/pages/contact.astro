@@ -1,0 +1,94 @@
+---
+/**
+ * contact.astro — Contact page (form is UI-only; wire to your ESP/backend).
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with UpNorthHub — tips, corrections, partnerships, or just say hello."
+  breadcrumbs={[{ name: 'Home', url: '/' }, { name: 'Contact', url: '/contact' }]}
+>
+  <div class="container-editorial py-12 lg:py-16">
+    <header class="border-b border-zinc-200 pb-8 dark:border-zinc-800">
+      <span class="badge badge-accent">Say Hello</span>
+      <h1 class="mt-4 font-serif text-4xl font-black text-zinc-900 dark:text-white sm:text-5xl">
+        Contact UpNorthHub
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-200">
+        Tips, corrections, partnership ideas, or a story pitch — we read everything.
+        Send a note below or reach us directly by email.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <!-- Form -->
+      <section>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Send a message</h2>
+        <form class="mt-4 space-y-4" onsubmit="return false;">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="block">
+              <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Name</span>
+              <input
+                type="text"
+                required
+                placeholder="Your name"
+                class="mt-1 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent dark:border-zinc-700 dark:bg-zinc-950/60 dark:text-white dark:placeholder-zinc-500"
+                aria-label="Your name"
+              />
+            </label>
+            <label class="block">
+              <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Email</span>
+              <input
+                type="email"
+                required
+                placeholder="you@domain.com"
+                class="mt-1 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent dark:border-zinc-700 dark:bg-zinc-950/60 dark:text-white dark:placeholder-zinc-500"
+                aria-label="Your email"
+              />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Message</span>
+            <textarea
+              rows="6"
+              required
+              placeholder="What's on your mind?"
+              class="mt-1 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent dark:border-zinc-700 dark:bg-zinc-950/60 dark:text-white dark:placeholder-zinc-500"
+              aria-label="Your message"
+            ></textarea>
+          </label>
+          <button
+            type="submit"
+            class="rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-yellow-300"
+          >
+            Send message
+          </button>
+        </form>
+      </section>
+
+      <!-- Direct contacts -->
+      <aside class="space-y-6">
+        <div class="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Direct</h2>
+          <ul class="mt-3 space-y-3 text-sm">
+            <li>
+              <span class="block text-zinc-500">Email</span>
+              <a href={`mailto:${SITE.email}`} class="link-underline font-medium text-zinc-800 hover:!text-accent dark:text-zinc-200">{SITE.email}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-accent">Pitch a story</h2>
+          <p class="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-200">
+            We welcome guest analysis and field reports from builders. Include a short
+            outline and why it fits our readers.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
