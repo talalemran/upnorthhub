@@ -17,7 +17,10 @@ function buildAdHast(ad) {
   return {
     type: 'element',
     tagName: 'div',
-    properties: { className: ['article-ad', 'my-10', 'text-center', 'not-prose'] },
+    properties: {
+      className: ['sponsor-card', 'my-10', 'text-center', 'not-prose'],
+      'aria-label': 'Sponsored partner content',
+    },
     children: [
       {
         type: 'element',
@@ -33,7 +36,7 @@ function buildAdHast(ad) {
             'dark:text-zinc-300',
           ],
         },
-        children: [{ type: 'text', value: 'Advertisement' }],
+        children: [{ type: 'text', value: 'Partner' }],
       },
       {
         type: 'element',

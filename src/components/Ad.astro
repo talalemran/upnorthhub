@@ -10,9 +10,9 @@ import { pickAd, fallbackAd } from '../data/ads.mjs';
 const ad = pickAd() ?? fallbackAd;
 ---
 
-<div class="article-ad my-10 text-center not-prose">
+<div class="sponsor-card my-10 text-center not-prose" aria-label="Sponsored partner content">
   <span class="block mb-2 text-[11px] uppercase tracking-widest text-zinc-400 dark:text-zinc-300">
-    Advertisement
+    Partner
   </span>
   <a
     href={ad.link}

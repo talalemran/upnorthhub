@@ -118,8 +118,8 @@
   }
 }
 
-/* Sponsored ad image: never show a border (overrides prose-img:border). */
-.article-ad img {
+/* Sponsored partner image: never show a border (overrides prose-img:border). */
+.sponsor-card img {
   border: 0 !important;
 }
 
