@@ -42,6 +42,8 @@ Two numbers here should shape your entire launch strategy. First, mobile commerc
 
 <img src="/images/articles/start-e-commerce-business-2026/img1.webp" alt="Makeup example for e-commerce" width="1200" height="912" loading="lazy" />
 
+
+
 Before touching a platform, decide how you're actually going to source and sell products. This decision shapes everything downstream — your margins, your startup capital, and how much operational work you're signing up for.
 
 - **Dropshipping.** Lowest upfront cost, no inventory risk, but thin margins and less control over shipping times and product quality. Best for testing a niche before committing capital.
@@ -88,6 +90,8 @@ Budget across these categories realistically:
 
 <img src="/images/articles/start-e-commerce-business-2026/img2.webp" alt="People example for e-commerce" width="1200" height="800" loading="lazy" />
 
+
+
 Given that mobile commerce accounts for roughly 59% of total e-commerce sales, treating mobile as an afterthought isn't a minor oversight — it's optimizing against the majority of your future traffic. The gap between apps and mobile web is stark: shopping apps convert at meaningfully higher rates than mobile websites, and users spend far longer per session in an app than in a mobile browser.
 
 You don't need a native app on day one — most new stores shouldn't build one that early. But you do need a mobile-responsive theme, a checkout that doesn't force account creation, and page load times fast enough that impatient mobile shoppers don't bounce before checkout even loads.
@@ -102,7 +106,9 @@ You don't need a native app on day one — most new stores shouldn't build one t
 
 ## Where This Advice Falls Short
 
-<img src="/images/articles/start-e-commerce-business-2026/img3.webp" alt="Laptop example for e-commerce" width="1200" height="533" loading="lazy" />
+<img src="/images/articles/start-e-commerce-business-2026/img3.webp" alt="Feedback example for e-commerce" width="1200" height="859" loading="lazy" />
+
+
 
 To be fair to anyone reading this as a full business plan: it isn't one, and a few real limits are worth naming.
 

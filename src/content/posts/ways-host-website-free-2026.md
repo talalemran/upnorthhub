@@ -52,6 +52,8 @@ The trade-off is workflow, not capability. Deployment runs through a connected G
 <img src="/images/articles/ways-host-website-free-2026/img1.webp" alt="Keyboard example for tools" width="1200" height="800" loading="lazy" />
 
 
+
+
 GitHub Pages remains the simplest option if your project already lives in a GitHub repository. You push static files — or a Jekyll, Hugo, or Astro build — enable Pages in the repo settings, and you have a live site with free, automatically provisioned HTTPS on a custom domain.
 
 The free tier includes a 1GB site-size limit and a soft 100GB-per-month bandwidth cap, along with 10 builds per hour. Those numbers are more than enough for a portfolio, a documentation site, or an open-source project page — the kind of site GitHub Pages was actually built for.
@@ -81,6 +83,8 @@ The free tier includes unlimited sites but caps bandwidth at 100GB per month, an
 <img src="/images/articles/ways-host-website-free-2026/img2.webp" alt="Cloud example for tools" width="1200" height="1200" loading="lazy" />
 
 
+
+
 Static hosting covers a lot of ground, but not everything. If your project needs a real backend, a database, or server-side logic, a different set of platforms applies.
 
 - **Firebase Hosting** pairs naturally with other Firebase or Google Cloud services and is a solid choice if your app already leans on that ecosystem — just watch usage closely, since costs can appear once you move past the no-cost allowance.
@@ -108,7 +112,6 @@ InfinityFree and AwardSpace fill that specific gap with genuine free PHP/MySQL h
 ## How to Choose the Right Free Host for Your Project
 
 <img src="/images/articles/ways-host-website-free-2026/img3.webp" alt="Vape example for tools" width="1200" height="800" loading="lazy" />
-
 
 - **Plain HTML, CSS, and JS with unpredictable traffic:** Cloudflare Pages, for the uncapped bandwidth alone.
 - **A project already living in a GitHub repo, especially open-source:** GitHub Pages.

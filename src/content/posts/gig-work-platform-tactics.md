@@ -44,6 +44,8 @@ The financial split matters too. Among adults who did any gig activity, 65% said
 ## Upwork: Winning the Three Ranking Systems
 
 <img src="/images/articles/gig-work-platform-tactics/img1.webp" alt="Magnifying glass example for gig-work" width="1200" height="960" loading="lazy" />
+
+
  
 Upwork isn't one algorithm. It's three, and most freelancers only ever think about one of them.
  
@@ -105,6 +107,8 @@ Both platforms are testing systems that reward reliability with better access in
 ## Platform Comparison Table
 
 <img src="/images/articles/gig-work-platform-tactics/img2.webp" alt="Coffee example for gig-work" width="1200" height="800" loading="lazy" />
+
+
  
 | Factor | Upwork | DoorDash | Uber / Uber Eats |
 |---|---|---|---|
@@ -123,6 +127,8 @@ Both platforms are testing systems that reward reliability with better access in
 ## What to Do After You've Picked a Platform
 
 <img src="/images/articles/gig-work-platform-tactics/img3.webp" alt="Youtuber example for gig-work" width="1200" height="899" loading="lazy" />
+
+
 
  
 - **Track your numbers monthly, not daily.** JSS and acceptance rate are rolling metrics — daily swings are noise.

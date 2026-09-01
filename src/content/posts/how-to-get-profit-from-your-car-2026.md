@@ -17,7 +17,6 @@ A car is usually the second-biggest expense most people carry after housing, and
 
 This guide breaks down what each model actually pays after expenses, what it demands from you in return, and how to pick the one that fits your car and your time rather than chasing the biggest headline number.
 
-<img src="/images/articles/how-to-get-profit-from-your-car-2026/img1.webp" alt="Car as a revenue stream on a road" width="1200" height="634" loading="lazy" />
 
 ## How We Evaluated This Guide
 
@@ -36,6 +35,9 @@ Before the deep dive, here's the landscape at a glance. Each model trades a diff
 
 ## Turo: Renting Out Your Car When You're Not Using It
 
+<img src="/images/articles/how-to-get-profit-from-your-car-2026/img1.webp" alt="Apartment building example for gig-work" width="1200" height="800" loading="lazy" />
+
+
 Turo turns your car into a listing the same way Airbnb turns a spare room into one. You set availability, guests book directly, and you collect a share of the rental fee.
 
 The honest earnings range is wide because it depends heavily on vehicle type and market. Economy cars typically net $300–$600 a month, SUVs and mid-range vehicles bring in $700–$1,200, and luxury or EV listings can clear $2,000–$5,000+ monthly in strong markets. Turo itself reports a lower national average across all listed vehicles — $545/month — which reflects the reality that most hosts aren't running luxury fleets in top-tier cities.
@@ -46,7 +48,6 @@ Turo itself reports a lower national average across all listed vehicles — $545
 
 **Best for:** owners of a paid-off or low-payment vehicle in a mid-size to large city who can tolerate normal wear from strangers driving it and want a mostly passive income stream.
 
-<img src="/images/articles/how-to-get-profit-from-your-car-2026/img2.webp" alt="Car example for gig-work" width="1200" height="634" loading="lazy" />
 
 The fee structure matters more than most new hosts realize.
 
@@ -68,6 +69,9 @@ A few numbers worth knowing before you start:
 
 ## Car Wrap Advertising: Genuinely Passive, Genuinely Limited
 
+<img src="/images/articles/how-to-get-profit-from-your-car-2026/img2.webp" alt="Car example for gig-work" width="1200" height="800" loading="lazy" />
+
+
 This is the model with the least effort and the lowest ceiling, and it's worth being direct about that trade-off upfront. Companies like Wrapify, Carvertise, and Nickelytics pay you to drive with a decal, partial wrap, or full wrap advertising a brand — you don't change how or where you drive, you just get paid for the exposure.
 
 Realistic pay lands between $100 and $450 a month depending on coverage size, your city's density, and how many miles you log. Full wraps pay more than decals, and dense metro driving pays more than suburban or rural routes, since advertisers are paying for eyeballs, not mileage alone.
@@ -83,7 +87,9 @@ DoorDash and Uber Eats deliver a different trade-off than rideshare — generall
 Earnings here depend heavily on market and time of day, and unlike rideshare, tips make up a much larger share of total pay — often a third or more of earnings on food delivery specifically. This model works best combined with something else on this list rather than as a standalone plan.
 
 ## Matching the Model to Your Situation
-<img src="/images/articles/how-to-get-profit-from-your-car-2026/img3.webp" alt="Mortgage example for gig-work" width="1200" height="634" loading="lazy" />
+
+<img src="/images/articles/how-to-get-profit-from-your-car-2026/img3.webp" alt="Woman example for gig-work" width="1200" height="800" loading="lazy" />
+
 
 - **You own a second car or rarely drive your main vehicle:** Turo is the strongest fit — it monetizes idle time you're already not using.
 - **You need meaningful income now and have hours available:** rideshare driving has the highest realistic ceiling, but budget for the net-versus-gross gap before committing.
