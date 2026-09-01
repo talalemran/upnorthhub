@@ -41,8 +41,22 @@
     @apply bg-white text-zinc-900 font-sans antialiased dark:bg-zinc-950 dark:text-zinc-200;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-black;
+  }
+
+  /* Keep bold text consistently heavy across dev and production builds.
+     Tailwind Typography applies its own strong selector, so we force the final weight here. */
+  strong,
+  b,
+  .prose strong,
+  .prose b {
+    font-weight: 700 !important;
   }
 
   ::selection {
@@ -58,10 +72,6 @@
      !important is required to beat Tailwind's hover:text-* utilities. */
   a:hover {
     color: currentColor !important;
-  }
-
-  strong, b {
-    font-weight: 700;
   }
 }
 
@@ -79,9 +89,9 @@
     @apply inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1 text-xs font-medium uppercase tracking-wider text-zinc-900 transition-colors dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-200;
   }
 
-.badge-accent {
+  .badge-accent {
     @apply border-accent/40 bg-accent/10 text-zinc-900 dark:text-accent;
-}
+  }
 
   .badge:hover {
     @apply border-accent/60 text-accent;
@@ -91,10 +101,12 @@
   .link-underline {
     @apply relative inline-block;
   }
+
   .link-underline::after {
     content: '';
     @apply absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300;
   }
+
   .link-underline:hover::after {
     @apply w-full;
   }
@@ -109,13 +121,16 @@
   .text-balance {
     text-wrap: balance;
   }
+
   .text-pretty {
     text-wrap: pretty;
   }
+
   /* Hide scrollbar for horizontal scroll areas */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
