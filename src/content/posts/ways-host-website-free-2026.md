@@ -1,7 +1,7 @@
 ---
 title: "Ways to Host Your Website for Free in 2026"
 description: "Ways to host your website for free in 2026 — Cloudflare Pages, GitHub Pages, Vercel, Netlify, and more, with real limits and honest trade-offs."
-pubDate: 2026-08-28
+pubDate: 2026-08-31
 author:
   name: "Talal Emran"
   avatar: "/images/talal.png"
