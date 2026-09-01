@@ -52,6 +52,8 @@ What changes behavior:
 
 
 
+
+
 Reclaim connects to Google Calendar and auto-blocks time for habits, tasks, and buffers — then moves them when meetings land. You tell it "I need 10 hours of deep work this week" and it finds the slots. When a meeting invite arrives, Reclaim shifts the deep work block instead of deleting it.
 
 What changes behavior:
@@ -113,6 +115,8 @@ What changes behavior:
 
 
 
+
+
 Forest grows a virtual tree while you stay off your phone. Leave the app — tree dies. It's that simple, and the visual streak is more motivating than any screen-time report.
 
 What changes behavior:
@@ -146,6 +150,8 @@ Start the timer *before* you open the distracting app. The friction of "I have t
 ## What to Do After You Pick
 
 <img src="/images/articles/top-5-productivity-tools/img3.webp" alt="Book example for tools" width="1200" height="795" loading="lazy" />
+
+
 
 
 

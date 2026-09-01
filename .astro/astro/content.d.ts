@@ -201,6 +201,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"shopify-vs-woocommerce-2026-comparison.md": {
+	id: "shopify-vs-woocommerce-2026-comparison.md";
+  slug: "shopify-vs-woocommerce-2026-comparison";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "start-e-commerce-business-2026.md": {
 	id: "start-e-commerce-business-2026.md";
   slug: "start-e-commerce-business-2026";
