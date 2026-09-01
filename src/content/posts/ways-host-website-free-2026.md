@@ -111,7 +111,7 @@ InfinityFree and AwardSpace fill that specific gap with genuine free PHP/MySQL h
 
 ## How to Choose the Right Free Host for Your Project
 
-<img src="/images/articles/ways-host-website-free-2026/img3.webp" alt="Vape example for tools" width="1200" height="800" loading="lazy" />
+<img src="/images/articles/ways-host-website-free-2026/img3.webp" alt="website hosting comparison example for tools" width="1200" height="800" loading="lazy" />
 
 - **Plain HTML, CSS, and JS with unpredictable traffic:** Cloudflare Pages, for the uncapped bandwidth alone.
 - **A project already living in a GitHub repo, especially open-source:** GitHub Pages.

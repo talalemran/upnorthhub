@@ -215,6 +215,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"ways-host-website-free-2026.md": {
+	id: "ways-host-website-free-2026.md";
+  slug: "ways-host-website-free-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "writing-effective-blog-posts-for-business.md": {
 	id: "writing-effective-blog-posts-for-business.md";
   slug: "writing-effective-blog-posts-for-business";
