@@ -59,6 +59,10 @@
   a:hover {
     color: currentColor !important;
   }
+
+  strong, b {
+    font-weight: 700;
+  }
 }
 
 @layer components {
