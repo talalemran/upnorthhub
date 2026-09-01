@@ -10,7 +10,7 @@ author:
 category: "e-commerce"
 tags: ["Shopify", "WooCommerce", "ecommerce platforms", "online store", "platform comparison"]
 featured: false
-coverImage: "/images/articles/shopify-vs-woocommerce-2026-comparison/cover.webp"
+coverImage: "/images/shopify-vs-woocommerce-2026-comparison.webp"
 coverImageAlt: "E-commerce platform comparison and online store strategy"
 ---
 
