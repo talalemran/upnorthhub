@@ -110,6 +110,7 @@ Shopify wins when you want to launch fast, keep costs predictable, and hand infr
 ## FAQ
 
 **Is Shopify or WooCommerce cheaper?**
+
 It depends on scale and setup. WooCommerce's core plugin is free but requires hosting and plugins that add up to $25–$35/month minimum, while Shopify's $39+/month plans are all-inclusive — at high revenue, Shopify's payment-processing savings can offset its higher sticker price entirely.
 
 **Which platform is better for SEO?**
