@@ -104,7 +104,6 @@ You don't need a native app on day one — most new stores shouldn't build one t
 
 <img src="/images/articles/start-e-commerce-business-2026/img3.webp" alt="Laptop example for e-commerce" width="1200" height="533" loading="lazy" />
 
-
 To be fair to anyone reading this as a full business plan: it isn't one, and a few real limits are worth naming.
 
 - **Platform choice matters less than product-market fit.** No platform recommendation here fixes a product nobody wants to buy.

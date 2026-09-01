@@ -19,20 +19,6 @@ This guide covers how to build a portfolio website that actually converts — no
 
 ## How We Evaluated This Guide
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 The recommendations below are filtered through the same lens we apply to every gig-work topic on UpNorthHub:
 
 - **It has to help a solo worker with no team and no marketing budget.** Advice that assumes a content team or ad spend isn't useful to the typical freelancer.
@@ -42,20 +28,6 @@ The recommendations below are filtered through the same lens we apply to every g
 Where a statistic is approximate or survey-based, we say so. Portfolio-building benefits from real numbers, but pretending a soft survey is hard science helps no one.
 
 ## Why a Portfolio Website Matters More Than Another Platform Profile
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Platforms like Upwork, Fiverr, and DoorDash give you reach but take ownership. Your profile lives on their domain, ranks by their rules, and can be buried, demoted, or deleted without notice. A portfolio website is the opposite: it's an asset you own, it ranks by search engines you can learn to influence, and it presents you the way you choose.
 
@@ -69,14 +41,6 @@ The practical advantages are concrete:
 > "The freelancers who escape platform dependency fastest are the ones who treat their website as a client-acquisition channel, not an online resume." — common pattern among six-figure independents we interviewed
 
 ## Step 1: Define Your Positioning Before You Build
-
-
-
-
-
-
-
-
 
 The most common portfolio mistake is building first and positioning never. A site that says "I do design, writing, and development" converts worse than a site that says "I build conversion-focused landing pages for SaaS startups." Specificity is not a limitation — it's what makes a stranger trust you in ten seconds.
 
@@ -95,29 +59,6 @@ If you can't fill that sentence, solve positioning before pixels. A narrow site 
 ## Step 2: Choose the Right Platform
 
 <img src="/images/articles/how-to-create-successful-portfolio-website-2026/img1.webp" alt="Idea example for gig-work" width="1200" height="840" loading="lazy" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The "which builder" question is narrower than listicles suggest. For a gig worker, the real choice is between three paths: a static site framework, an all-in-one builder, or a portfolio-native platform.
 
@@ -180,29 +121,6 @@ Mobile traffic is the majority of web usage, and load time directly affects whet
 
 <img src="/images/articles/how-to-create-successful-portfolio-website-2026/img2.webp" alt="Target group example for gig-work" width="1200" height="534" loading="lazy" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Discovery gets them to the site; conversion gets them to message you. The highest-leverage tactics:
 
 - **State your process.** A simple "How I work" — discover, build, launch, support — reduces the fear of the unknown that stops first-time clients.
@@ -231,29 +149,6 @@ A stale portfolio quietly loses trust. Quarterly habits that keep it working:
 
 <img src="/images/articles/how-to-create-successful-portfolio-website-2026/img3.webp" alt="Business example for gig-work" width="1200" height="400" loading="lazy" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 To stay honest:
 
 - **A portfolio doesn't replace platform reach.** Upwork and Fiverr put you in front of buyers who are already spending; a website makes you findable to buyers who aren't. Both have a place, especially early.
@@ -278,16 +173,21 @@ Build the site after you know who you help. Make it fast, mobile-clean, and outc
 ## FAQ
 
 **Do I need coding skills to build a portfolio website in 2026?**
+
 No. Builders like Squarespace, Wix, and Webflow get a clean site live without code, and portfolio platforms like Behance handle everything. Coding only becomes worth it if you want maximum speed, ownership, and customization — which is why technical freelancers often choose a static framework instead.
 
 **How many case studies do I need to look credible?**
+
 Three strong, outcome-focused case studies beat thirty shallow thumbnails. Depth signals that you deliver results, while volume without context reads like commodity gig work. Start with your three best, then add as you ship.
 
 **Should I put my portfolio on a platform or my own domain?**
+
 Both serve different jobs early on. A platform gives you instant discovery; your own domain gives you ownership and trust. The practical path is to start on a platform or builder, then move to a self-hosted domain once referrals begin flowing.
 
 **What's the biggest portfolio mistake gig workers make?**
+
 Building before defining positioning. A beautiful site with no clear audience or outcome converts no one. Nail the sentence "I help [who] achieve [what] through [service]" before a single page goes live.
 
 **How long until a portfolio website brings in clients?**
+
 Discoverability is a long game. Search rankings and referral trails build over months, not days, so treat the site as a compounding asset rather than a launch-week lead generator. Pair it with platform work early, and let inbound grow as your case studies and content accumulate.

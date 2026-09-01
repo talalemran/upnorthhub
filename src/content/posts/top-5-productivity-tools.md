@@ -20,49 +20,13 @@ The five tools below are the only ones that consistently reduced friction, autom
 
 ## How We Picked These Five
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 We ran a 30-day evaluation across three criteria: the tool must replace at least two existing workflows or automate a repetitive task, it must integrate cleanly with the calendar and communication tools you already use, and the learning curve must pay off within two weeks for a solo user. Tools requiring enterprise plans, dedicated admins, or months of onboarding didn't make the list.
 
 ## The Short Answer
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **Todoist** captures tasks fast enough to never lose an idea. **Reclaim.ai** defends your calendar so deep work actually happens. **Motion** plans your day for you when decision fatigue hits. **Notion** holds the context — specs, notes, decisions — that tools forget. **Forest** makes phone discipline visible instead of relying on willpower. Together they cover capture, scheduling, execution, reference, and focus — the five layers every productive system needs.
 
 ## Todoist: Capture Fast Enough to Beat Forgetting
-
-
-
-
-
-
-
-
 
 Todoist's value isn't project views or labels — it's the `q` shortcut (or quick-add on mobile) that lets you dump a task in under two seconds before it evaporates. The natural language parser handles "meeting with Sarah tomorrow 2pm #work" without opening a form.
 
@@ -85,29 +49,6 @@ What changes behavior:
 ## Reclaim.ai: Calendar Defense That Works While You Sleep
 
 <img src="/images/articles/top-5-productivity-tools/img1.webp" alt="Welder example for tools" width="1200" height="797" loading="lazy" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Reclaim connects to Google Calendar and auto-blocks time for habits, tasks, and buffers — then moves them when meetings land. You tell it "I need 10 hours of deep work this week" and it finds the slots. When a meeting invite arrives, Reclaim shifts the deep work block instead of deleting it.
 
@@ -168,29 +109,6 @@ What changes behavior:
 
 <img src="/images/articles/top-5-productivity-tools/img2.webp" alt="Magnifying example for tools" width="1200" height="800" loading="lazy" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Forest grows a virtual tree while you stay off your phone. Leave the app — tree dies. It's that simple, and the visual streak is more motivating than any screen-time report.
 
 What changes behavior:
@@ -225,29 +143,6 @@ Start the timer *before* you open the distracting app. The friction of "I have t
 
 <img src="/images/articles/top-5-productivity-tools/img3.webp" alt="Book example for tools" width="1200" height="795" loading="lazy" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 - **Pick one, not five.** Add the second tool only after the first is boring (two weeks of daily use without friction).
 - **Measure the right thing.** Track "tasks captured before forgotten" or "deep work hours defended" — not "features used."
 - **Audit quarterly.** If a tool hasn't saved its monthly cost in time, cut it. The best stack is the smallest one that works.
@@ -267,17 +162,22 @@ Tool fatigue comes from collecting apps that solve the same problem in slightly 
 ## FAQ
 
 **Do I need all five tools?**
+
 No. Start with the one that solves your loudest daily friction. Most people need two: a capture system (Todoist) and a calendar defender (Reclaim) or auto-scheduler (Motion).
 
 **Motion vs Reclaim — which one?**
+
 Motion builds your day from tasks. Reclaim defends your calendar from meetings. If you control your schedule → Motion. If meetings control you → Reclaim. They can work together (Motion for tasks, Reclaim for habits).
 
 **Does Forest actually work better than Screen Time?**
+
 Screen Time reports. Forest prevents. The tree death mechanic creates loss aversion that a notification doesn't. If you respond to streaks, Forest wins. If you respond to data, Screen Time + a blocker like Freedom works.
 
 **Can Notion replace Todoist?**
+
 For solo use with simple tasks, yes. For rapid capture, natural language parsing, and mobile-first workflow, Todoist is faster. Many people use both: Todoist for capture, Notion for project context.
 
 **What's the actual cost of this full stack?**
+
 Free tiers cover 80% of solo usage. Paid: Todoist $4/mo + Reclaim $8/mo + Motion $12/mo (annual) + Notion $10/mo + Forest $3.99 (once) = ~$410/year. Most individuals pay $0-12/month.
 

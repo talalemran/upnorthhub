@@ -19,20 +19,6 @@ This guide is the practical, no-hype version. It covers what drop shipping actua
 
 ## How We Evaluated This Guide
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Same filters we apply to every e-commerce topic on UpNorthHub:
 
 - **It has to reflect 2026 reality, not 2019 folklore.** The "find a $2 product, sell it for $30 on Facebook" playbook is largely gone; ad costs, platform rules, and customer expectations have all shifted.
@@ -42,20 +28,6 @@ Same filters we apply to every e-commerce topic on UpNorthHub:
 Where a figure is approximate or moves with platform policy, we say so.
 
 ## The State of Drop Shipping in 2026
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 The broader market sets the stage. Global e-commerce sales are on track for roughly $6.88 trillion in 2026, mobile commerce is the majority of that at around 59%, and cart abandonment still averages above 70% industry-wide. Those three numbers define the playing field: a huge market, a mobile-first buyer, and a checkout that leaks most of the customers you pay to attract.
 
@@ -84,12 +56,6 @@ It is *not* viable as a set-and-forget income machine. Ad platforms have gotten 
 ## Step 1: Pick a Niche You Can Actually Defend
 
 <img src="/images/articles/drop-shipping-guide-2026/img1.webp" alt="Pants example for e-commerce" width="1200" height="900" loading="lazy" />
-
-
-
-
-
-
 
 "Everything for everyone" is the fastest way to fail. A defensible niche has three traits:
 
@@ -138,20 +104,6 @@ Research is watching what's already selling, then differentiating — better cre
 
 <img src="/images/articles/drop-shipping-guide-2026/img2.webp" alt="Shopping example for e-commerce" width="1200" height="773" loading="lazy" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Two broad paths:
 
 - **Paid social (Meta, TikTok).** Fastest path to volume and the fastest way to lose money. Treat ad spend as an experiment with a strict stop-loss; kill creatives that don't hit a target return within a test budget.
@@ -191,28 +143,6 @@ That ~$10 is your buffer for refunds, chargebacks, and the months you spend opti
 
 ## Where This Guide Falls Short
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 - **Ad costs are volatile.** A CPM that works this quarter can double next quarter; any margin model should include a cushion.
 - **Supplier performance varies.** The same platform can be excellent for one product and terrible for another.
 - **"Viable" depends on your skills.** Strong creative or content ability changes the math more than any supplier choice.
@@ -235,16 +165,21 @@ The stores that fail treat drop shipping as a loophole. The stores that last tre
 ## FAQ
 
 **Is drop shipping still worth it in 2026?**
+
 For testing a product or building a branded store with low upfront capital, yes. As a passive, effort-free income source, no — ad costs and competition have removed that version of the model.
 
 **How much money do I need to start?**
+
 Enough to cover a platform subscription, a small ad test budget (often a few hundred dollars), and samples. The danger isn't the startup cost; it's continuing to fund ads on a product with negative unit economics.
 
 **Which supplier should a beginner use?**
+
 Start with AliExpress or a similar marketplace to validate cheaply, then move to faster suppliers like Zendrop, Spocket, or CJdropshipping's warehousing as you confirm demand. Delivery speed is usually the reason to upgrade.
 
 **Do I need Shopify for drop shipping?**
+
 No, but it's the common default because it handles hosting, security, and checkout. If you're technical and want control, WooCommerce is a strong alternative. What matters more than the platform is a fast, mobile-first, trustworthy store.
 
 **Why do most drop shipping stores fail?**
+
 Negative unit economics hidden by optimistic math, slow shipping that drives refunds, and undisciplined ad spend. Most failures are financial-model failures, not product failures.

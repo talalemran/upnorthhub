@@ -56,7 +56,7 @@
   b,
   .prose strong,
   .prose b {
-    font-weight: 700 !important;
+    font-weight: 900 !important;
   }
 
   ::selection {

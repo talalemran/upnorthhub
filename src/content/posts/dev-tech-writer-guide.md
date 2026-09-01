@@ -18,22 +18,6 @@ Most developers who start writing technical guides make the same mistake: they w
 This piece is a structural framework, not encouragement. If you can write clean code, you already have the raw material for good technical writing. What's usually missing is the shape.
  
 ## Why Developers Write Guides That Don't Rank
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 The typical developer-written tutorial front-loads context the reader doesn't need yet. It explains the history of the tool, the architecture behind it, and three alternative approaches before showing a single line of working code. By the time the actual solution shows up, the reader has already left for a competitor's article that led with the fix.
  
@@ -43,22 +27,6 @@ Search engines and AI answer engines both reward the same thing: a direct answer
  
 ## The Inverted Pyramid, Applied to Code
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 Journalists have used the inverted pyramid for a century: most important information first, supporting detail after, background context last. Technical guides should follow the same logic.
  
 A guide structured this way answers three questions in order:
@@ -72,37 +40,6 @@ Most developer-authored guides do this in reverse. They open with theory, bury t
 
 <img src="/images/articles/dev-tech-writer-guide/img1.webp" alt="Girl example for content-creation" width="1200" height="800" loading="lazy" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 Once you've internalized the inverted pyramid, apply this skeleton to almost any technical guide:
  
 - **Hook and stakes.** Two or three sentences on why this problem matters or what breaks if you get it wrong. No throat-clearing.
@@ -118,41 +55,26 @@ This isn't a rigid template to fill in mechanically. It's a checklist for making
  
 Structure gets you the right order of information. Formatting gets someone to actually read it.
  
-**Paragraphs should run two to three sentences.** Developers coming from documentation or code comments often write in dense blocks because that's how technical prose usually looks. On the web, dense blocks get skipped.
+**Paragraphs should run two to three sentences.** 
+
+Developers coming from documentation or code comments often write in dense blocks because that's how technical prose usually looks. On the web, dense blocks get skipped.
  
-**Code blocks need context on both sides.** A code block with no sentence before it forces the reader to reverse-engineer your intent. A code block with no sentence after it leaves them wondering if that's really the whole solution.
+**Code blocks need context on both sides.** 
+
+A code block with no sentence before it forces the reader to reverse-engineer your intent. A code block with no sentence after it leaves them wondering if that's really the whole solution.
  
-**Bold text should mark decisions, not just emphasis.** Bolding "Best for X" or "Use this when Y" gives skimmers a path through the article. Bolding random phrases for emphasis just adds visual noise.
+**Bold text should mark decisions, not just emphasis.** 
+
+Bolding "Best for X" or "Use this when Y" gives skimmers a path through the article. Bolding random phrases for emphasis just adds visual noise.
  
-**Headings should be questions or direct statements, not vague labels.** "Configuration" tells a skimmer nothing. "How to Configure Retry Logic Without Breaking Idempotency" tells them exactly whether to keep reading.
+**Headings should be questions or direct statements, not vague labels.** 
+
+"Configuration" tells a skimmer nothing. "How to Configure Retry Logic Without Breaking Idempotency" tells them exactly whether to keep reading.
  
 ## Writing for Both Search Engines and AI Answer Tools
 
 <img src="/images/articles/dev-tech-writer-guide/img2.webp" alt="Laptop example for content-creation" width="1200" height="809" loading="lazy" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 Traditional SEO and answer-engine optimization used to require different tactics. In 2026, they've largely converged, because both ranking systems reward the same underlying quality: a clear, direct answer that doesn't require the reader to infer your point.
  
 Write the kind of paragraph that could be lifted whole and dropped into a chat response, because increasingly, it will be. That means your direct-answer section should stand on its own — understandable without the surrounding article, specific enough to be useful, and free of vague hedging like "it depends on your setup" without immediately following up on what it depends on.
@@ -168,29 +90,6 @@ That cost is real, and it's not always worth paying. If you're documenting somet
 ## Where This Structure Breaks Down
 
 <img src="/images/articles/dev-tech-writer-guide/img3.webp" alt="Question mark example for content-creation" width="1200" height="730" loading="lazy" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 No framework survives every use case, and this one has real limits worth naming.
  
@@ -211,17 +110,22 @@ That's the actual skill shift from developer to technical writer: not learning t
 ## FAQ
  
 **Do I need to follow this structure for every technical article I write?**
+
 No. It's built for guides solving a specific problem for a stranger arriving from search — reference docs, internal wikis, and conceptual deep-dives for a known audience don't need it.
  
 **What's the single highest-impact change if I only fix one thing?**
+
 Move your direct answer into the first 150 words. Everything else in this framework is secondary to getting the fix in front of the reader before they bounce.
  
 **How long should the "why it works" section be compared to the fix itself?**
+
 Long enough to explain the mechanism, not the whole tool. If you're re-explaining the fundamentals of the technology instead of the specific mechanism behind your fix, you've drifted into a different article.
  
 **Does this structure hurt technical depth or make articles feel dumbed down?**
+
 No — depth moves later in the piece instead of disappearing. Edge cases and mechanism explanations are exactly where developer expertise shows, they just come after the reader's immediate problem is solved, not before.
  
 **Is this framework different for a blog post versus official documentation?**
+
 Yes. Documentation is referenced repeatedly by people who already have context, so it can stay reference-shaped. A blog-style guide is usually a reader's first and only visit, which is why it needs the answer-first structure this piece describes.
 

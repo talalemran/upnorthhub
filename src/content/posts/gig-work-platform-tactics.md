@@ -19,42 +19,10 @@ Two people can run the identical hustle — same skills, same platform, same hou
 This piece breaks down the gig work platform tactics that hold up under real data in 2026: how Upwork's ranking systems actually work, when DoorDash's acceptance rate matters and when it's noise, and how Uber's tier system gates rewards without touching your order flow. No platform PR, no forum myths — just the mechanics and what to do with them.
 
 ## How We Evaluated These Tactics
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 We focused on three criteria when picking which platforms and tactics to cover here: the platform has to publish or at least partially disclose its ranking logic, the tactic has to be backed by verifiable data rather than driver-forum folklore, and the advice has to hold up whether you're doing this five hours a week or fifty. Platforms that keep their algorithms fully opaque, or where the "tactics" amount to unverifiable rumor, didn't make the cut.
  
 ## The Real Size of the Gig Economy in 2026
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 Before the tactics, the numbers worth knowing. An estimated 72.9 to 76.4 million Americans now do freelance or gig work, roughly 36% of the total US workforce. But most of that work is a side channel, not a full-time replacement for a job.
  
@@ -76,37 +44,6 @@ The financial split matters too. Among adults who did any gig activity, 65% said
 ## Upwork: Winning the Three Ranking Systems
 
 <img src="/images/articles/gig-work-platform-tactics/img1.webp" alt="Magnifying glass example for gig-work" width="1200" height="960" loading="lazy" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 Upwork isn't one algorithm. It's three, and most freelancers only ever think about one of them.
  
@@ -168,29 +105,6 @@ Both platforms are testing systems that reward reliability with better access in
 ## Platform Comparison Table
 
 <img src="/images/articles/gig-work-platform-tactics/img2.webp" alt="Coffee example for gig-work" width="1200" height="800" loading="lazy" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 | Factor | Upwork | DoorDash | Uber / Uber Eats |
 |---|---|---|---|
@@ -216,28 +130,6 @@ Both platforms are testing systems that reward reliability with better access in
 - **Treat paid visibility tools (Boost, ads) as diagnostics.** If they underperform your organic results, the fix is targeting, not budget.
 - **Revisit thresholds periodically.** Platforms update badge and tier requirements; a rule that held six months ago may have shifted.
 ## Where These Tactics Fall Short
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 To be fair to the platforms and to readers: these tactics come with real limits.
  
@@ -252,14 +144,18 @@ Every platform covered here has published or observable rules governing visibili
 ## FAQ
  
 **Does acceptance rate affect DoorDash order quality?**
+
 No. DoorDash doesn't penalize drivers for declining orders and won't reduce how many requests you receive. It only gates Priority Access at the 50% threshold combined with a 4.5+ rating.
  
 **How long does it take to recover a damaged Upwork JSS?**
+
 Typically 3-6 months of consistently strong performance on smaller, lower-risk contracts, since recent successful contracts carry more weight in the rolling 24-month calculation.
  
 **Is boosting proposals on Upwork worth the cost?**
+
 Only if your organic fundamentals are already solid. Well-optimized organic profiles routinely outperform boosted profiles with weak JSS or vague titles — boost supplements a strong profile, it doesn't replace one.
  
 **Should I chase every delivery order to keep my acceptance rate high?**
+
 Only if you actually want what that rate unlocks. On DoorDash, it's Priority Access and Top Dasher perks. On Uber, it's Pro tier rewards. If neither matters to you, decline freely — cherry-picking on Uber Eats carries no penalty at all.
 
