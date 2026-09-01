@@ -48,14 +48,15 @@ const props = Astro.props;
           }
         } catch (_) {}
       })();
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-
-      gtag('config', 'G-QF2R8NK5RF');
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF2R8NK5RF"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QF2R8NK5RF"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QF2R8NK5RF');
+</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <!-- Preload Google Fonts with font-display swap for faster text rendering -->
