@@ -48,6 +48,8 @@ The financial split matters too. Among adults who did any gig activity, 65% said
 
 
 
+
+
  
 Upwork isn't one algorithm. It's three, and most freelancers only ever think about one of them.
  
@@ -113,6 +115,8 @@ Both platforms are testing systems that reward reliability with better access in
 
 
 
+
+
  
 | Factor | Upwork | DoorDash | Uber / Uber Eats |
 |---|---|---|---|
@@ -131,6 +135,8 @@ Both platforms are testing systems that reward reliability with better access in
 ## What to Do After You've Picked a Platform
 
 <img src="/images/articles/gig-work-platform-tactics/img3.webp" alt="Youtuber example for gig-work" width="1200" height="899" loading="lazy" />
+
+
 
 
 
