@@ -27,7 +27,7 @@ This isn't a minor stylistic issue. It's the root cause behind the most damning 
 
 ## Why This Mistake Is So Easy to Make
 
-<img src="/images/articles/the-biggest-mistake-business-blogs-make/img1.webp" alt="Eraser example for content-creation" width="1200" height="1162" loading="lazy" />
+<img src="/images/articles/the-biggest-mistake-business-blogs-make/01.webp" alt="Person writing in a notebook next to an open laptop" width="1200" height="884" loading="lazy" />
 
 
 Nobody sets out to write a blog post that ignores the reader. The mistake creeps in for structural reasons that are worth naming honestly.
@@ -53,7 +53,7 @@ The businesses that get this right report a starkly different pattern: companies
 
 ## The Fix: Reader Intent as the Starting Point, Not the Afterthought
 
-<img src="/images/articles/the-biggest-mistake-business-blogs-make/img2.webp" alt="Book example for content-creation" width="1200" height="800" loading="lazy" />
+<img src="/images/articles/the-biggest-mistake-business-blogs-make/02.webp" alt="Laptop screen displaying analytics and chart data" width="1200" height="800" loading="lazy" />
 
 
 Correcting this mistake doesn't require a bigger content budget or a total strategy overhaul. It requires reordering where you start.
@@ -78,7 +78,7 @@ The second version answers a question someone is actually searching for. The fir
 
 ## Where This Diagnosis Has Limits
 
-<img src="/images/articles/the-biggest-mistake-business-blogs-make/img3.webp" alt="Question mark example for content-creation" width="1200" height="730" loading="lazy" />
+<img src="/images/articles/the-biggest-mistake-business-blogs-make/03.webp" alt="Team collaborating around a laptop in a meeting" width="1200" height="803" loading="lazy" />
 
 
 To be fair to blogging teams under real constraints, this isn't the only mistake that matters, and fixing it alone doesn't guarantee results.
