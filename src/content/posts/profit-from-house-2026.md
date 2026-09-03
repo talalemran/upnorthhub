@@ -108,16 +108,21 @@ There's no universal best way to profit from your own house — the right model 
 ## FAQ
 
 **How much can you realistically make renting out a room or property on Airbnb?**
+
 Median monthly revenue across the US landed around $2,408 in 2025, with most hosts earning $2,000–$4,500 a month in gross revenue — but the range between top and bottom performers in the same market can be five to six times wide, driven by pricing strategy and management quality, not just location.
 
 **Can I count ADU rental income when applying for a mortgage?**
+
 Yes, as of a March 2026 Fannie Mae policy change, lenders can count projected ADU rental income toward your qualifying income on one-unit, owner-occupied purchases, up to 30% of your total qualifying income.
 
 **Does house hacking really let you live for free?**
+
 Sometimes, but it's the exception, not the rule — in most markets, rental income covers 40–70% of the total housing payment rather than eliminating it entirely, and full coverage typically requires a lower-cost market or a larger down payment.
 
 **Is a HELOC a good way to fund a rental project on my property?**
+
 It can be, if the funds go toward a specific income-generating project like an ADU build, but it's still debt secured against your home — using it without a realistic income plan behind it is a genuinely risky way to leverage equity.
 
 **What's the lowest-effort way to earn money from my house?**
+
 Renting a spare bedroom to a long-term tenant, since it requires no permits, no dynamic pricing, and far less day-to-day management than a short-term rental operation.
