@@ -49,14 +49,7 @@ The trade-off is workflow, not capability. Deployment runs through a connected G
 
 ## GitHub Pages: Best for Docs, Portfolios, and Open-Source Projects
 
-<img src="/images/articles/ways-host-website-free-2026/img1.webp" alt="Keyboard example for tools" width="1200" height="800" loading="lazy" />
-
-
-
-
-
-
-
+<img src="/images/articles/ways-host-website-free-2026/img1.webp" alt="Developer working with a GitHub code repository" width="1200" height="800" loading="lazy" />
 
 GitHub Pages remains the simplest option if your project already lives in a GitHub repository. You push static files — or a Jekyll, Hugo, or Astro build — enable Pages in the repo settings, and you have a live site with free, automatically provisioned HTTPS on a custom domain.
 
@@ -84,14 +77,7 @@ The free tier includes unlimited sites but caps bandwidth at 100GB per month, an
 
 ## Beyond Static: Firebase, Render, and Database-Backed Projects
 
-<img src="/images/articles/ways-host-website-free-2026/img2.webp" alt="Cloud example for tools" width="1200" height="1200" loading="lazy" />
-
-
-
-
-
-
-
+<img src="/images/articles/ways-host-website-free-2026/img2.webp" alt="Cloud hosting server infrastructure" width="1200" height="674" loading="lazy" />
 
 Static hosting covers a lot of ground, but not everything. If your project needs a real backend, a database, or server-side logic, a different set of platforms applies.
 
@@ -119,7 +105,7 @@ InfinityFree and AwardSpace fill that specific gap with genuine free PHP/MySQL h
 
 ## How to Choose the Right Free Host for Your Project
 
-<img src="/images/articles/ways-host-website-free-2026/img3.webp" alt="Vape example for tools" width="1200" height="800" loading="lazy" />
+<img src="/images/articles/ways-host-website-free-2026/img3.webp" alt="Modern web server hardware for hosting" width="1200" height="800" loading="lazy" />
 
 
 

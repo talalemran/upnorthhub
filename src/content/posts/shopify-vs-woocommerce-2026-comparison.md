@@ -29,7 +29,7 @@ Shopify trades control for convenience. WooCommerce trades convenience for contr
 
 ## Market Share: A Genuinely Confusing Picture
 
-<img src="/images/articles/shopify-vs-woocommerce-2026-comparison/img1.webp" alt="Woman example for e-commerce" width="1200" height="1200" loading="lazy" />
+<img src="/images/articles/shopify-vs-woocommerce-2026-comparison/img1.webp" alt="E-commerce analytics dashboard" width="1200" height="855" loading="lazy" />
 
 
 
@@ -64,7 +64,7 @@ Here's where it gets genuinely interesting: at meaningful scale, the numbers can
 
 ## Setup Speed and Ease of Use
 
-<img src="/images/articles/shopify-vs-woocommerce-2026-comparison/img2.webp" alt="Banquet example for e-commerce" width="1200" height="801" loading="lazy" />
+<img src="/images/articles/shopify-vs-woocommerce-2026-comparison/img2.webp" alt="Online store shopping experience" width="1200" height="801" loading="lazy" />
 
 
 
@@ -87,7 +87,7 @@ Shopify handles baseline SEO competently — automatic sitemaps, clean meta tag 
 
 ## Performance and Scalability
 
-<img src="/images/articles/shopify-vs-woocommerce-2026-comparison/img3.webp" alt="Businessman example for e-commerce" width="1200" height="518" loading="lazy" />
+<img src="/images/articles/shopify-vs-woocommerce-2026-comparison/img3.webp" alt="E-commerce hosting server infrastructure" width="1200" height="674" loading="lazy" />
 
 
 

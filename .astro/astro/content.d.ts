@@ -215,6 +215,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"the-biggest-mistake-business-blogs-make.md": {
+	id: "the-biggest-mistake-business-blogs-make.md";
+  slug: "the-biggest-mistake-business-blogs-make";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "top-5-productivity-tools.md": {
 	id: "top-5-productivity-tools.md";
   slug: "top-5-productivity-tools";
