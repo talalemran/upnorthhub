@@ -1,7 +1,7 @@
 ---
 title: "How to Get Profit From Your Own House in 2026"
 description: "How to get profit from your own house in 2026 — Airbnb hosting, house hacking, ADUs, and equity, with real earnings data behind each option."
-pubDate: 2026-08-31
+pubDate: 2026-09-03
 author:
   name: "Talal Emran"
   avatar: "/images/talal.png"
