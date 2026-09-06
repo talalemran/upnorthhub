@@ -56,7 +56,7 @@ AEO isn't a replacement for SEO — it's a layer built on top of it. Strong SEO 
 
 Where the two genuinely diverge is the actual measure of success. Traditional SEO asks "does this page rank?" AEO asks a related but distinct question: is your brand being cited correctly inside AI-generated responses, and how often? That shift changes what you track — high impressions with low clicks on a question-based query used to look like a problem; under AEO, it's often a sign your content is already appearing directly inside a featured snippet or AI answer box, which is success, not failure.
 
-<img src="/images/articles/answering-questions-blog-strategy/01.avif" alt="Close-up of hands typing on a laptop keyboard" loading="lazy" width="1400" height="933" />
+<img src="/images/articles/answering-questions-blog-strategy/03.avif" alt="Close-up of hands typing on a laptop keyboard" loading="lazy" width="1400" height="933" />
 
 ## Measuring Whether It's Working
 
