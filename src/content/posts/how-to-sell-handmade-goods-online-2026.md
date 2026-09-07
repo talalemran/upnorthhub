@@ -1,8 +1,7 @@
 ---
 title: "How to Sell Handmade Goods Online in 2026"
 description: "How to sell handmade goods online in 2026 — real platform fees, Etsy alternatives, and a multi-channel strategy that actually protects your income."
-pubDate: 2026-09-04
-updatedDate: 2026-09-04
+pubDate: 2026-09-07
 author:
   name: "Talal Emran"
   avatar: "/images/talal.png"
