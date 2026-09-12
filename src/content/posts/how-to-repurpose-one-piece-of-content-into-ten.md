@@ -43,7 +43,7 @@ The pillar itself should be your most comprehensive, well-researched piece on a 
 
 ## What Actually Changes as Content Moves Formats
 
-<img src="/images/articles/how-to-repurpose-one-piece-of-content-into-ten/01.webp" alt="a laptop displays blog writing" loading="lazy" width="1200" height="777" />
+<img src="/images/articles/how-to-repurpose-one-piece-of-content-into-ten/02.webp" alt="a laptop displays blog writing" loading="lazy" width="1200" height="777" />
 
 The biggest mistake in repurposing isn't doing too little of it — it's doing it lazily, copy-pasting the same content across platforms with no adaptation. Genuine repurposing means intelligently adapting a core message for each platform's audience and format expectations, not just re-uploading identical text everywhere.
 
