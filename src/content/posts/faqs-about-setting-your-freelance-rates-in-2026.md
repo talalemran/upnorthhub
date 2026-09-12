@@ -1,8 +1,7 @@
 ---
 title: "FAQs About Setting Your Freelance Rates in 2026"
 description: "Frequently asked questions about setting your freelance rates in 2026 — real benchmark data, pricing formulas, and how to price with confidence."
-pubDate: 2026-09-09
-updatedDate: 2026-09-09
+pubDate: 2026-09-12
 author:
   name: "Talal Emran"
   avatar: "/images/talal.png"
