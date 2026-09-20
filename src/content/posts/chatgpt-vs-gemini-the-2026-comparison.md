@@ -6,7 +6,7 @@ author:
   name: "Talal Emran"
   avatar: "/images/talal.png"
   role: "Web Developer & Designer"
-category: "tools-productivity"
+category: "tools"
 tags: ["ChatGPT", "Gemini", "AI assistants", "AI comparison", "productivity tools"]
 featured: false
 coverImage: "/images/chatgpt-vs-gemini-2026.webp"
