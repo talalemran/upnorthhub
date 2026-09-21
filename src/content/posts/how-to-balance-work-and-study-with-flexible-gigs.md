@@ -42,7 +42,7 @@ That flexibility has genuine financial value specifically because of how unpredi
 
 ## What the Different Gig Categories Actually Pay
 
-<img src="/images/articles/how-to-balance-work-and-study-with-flexible-gigs/01.webp" alt="gig worker" loading="lazy" width="1200" height="900" />
+<img src="/images/articles/how-to-balance-work-and-study-with-flexible-gigs/02.webp" alt="gig worker" loading="lazy" width="1200" height="900" />
 
 | Gig Category | Realistic Pay | Flexibility Level | Best Fit |
 |---|---|---|---|
