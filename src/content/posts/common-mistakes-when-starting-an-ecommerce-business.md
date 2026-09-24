@@ -49,7 +49,7 @@ Customer acquisition cost specifically shows up as a recurring, named failure po
 
 ## Mistake Four: Neglecting Customer Experience for Short-Term Sales
 
-<img src="/images/articles/common-mistakes-when-starting-an-ecommerce-business/01.webp" alt="online shopping" loading="lazy" width="1200" height="901" />
+<img src="/images/articles/common-mistakes-when-starting-an-ecommerce-business/02.webp" alt="online shopping" loading="lazy" width="1200" height="901" />
 
 Focusing too heavily on immediate sales at the expense of customer experience is a specifically named, recurring mistake — it produces low retention rates, since a customer treated as a one-time transaction has no reason to return, and acquiring a new customer costs meaningfully more than retaining an existing one.
 
