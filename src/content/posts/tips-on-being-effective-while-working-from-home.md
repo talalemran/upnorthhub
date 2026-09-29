@@ -1,7 +1,7 @@
 ---
 title: "Tips on Being Effective While Working From Home"
 description: "Tips on being effective while working from home in 2026, backed by real productivity data — structure, boundaries, and what the research actually shows."
-pubDate: 2026-09-26
+pubDate: 2026-09-29
 author:
   name: "Talal Emran"
   avatar: "/images/talal.png"
