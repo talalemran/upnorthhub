@@ -64,7 +64,10 @@ import { CATEGORY_LABELS, CATEGORY_ORDER } from '../lib/posts';
         class="container-editorial flex flex-col items-center justify-between gap-3 py-6 text-sm text-zinc-500 dark:text-white sm:flex-row"
       >
       <p>© {new Date().getUTCFullYear()} <a href="/" class="link-underline hover:text-accent">{SITE.name}</a>. All rights reserved.</p>
-      <p>Built with Astro · Tailwind CSS · TypeScript</p>
+      <div class="flex gap-4">
+        <a href="/terms" class="link-underline hover:text-accent dark:text-zinc-200">Terms</a>
+        <a href="/privacy" class="link-underline hover:text-accent dark:text-zinc-200">Privacy</a>
+      </div>
     </div>
   </div>
 </footer>

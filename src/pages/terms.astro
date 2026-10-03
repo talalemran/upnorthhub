@@ -1,0 +1,12 @@
+---
+/**
+ * terms.astro — Terms of service page.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export const getStaticProps = async () => ({
+  breadcrumbs: [
+    { name: 'Home', url: '/' },
+    { name: 'Terms', url: '/terms' },
+  ],
+});
