@@ -152,9 +152,65 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"posts": {
+"answering-questions-blog-strategy.md": {
+	id: "answering-questions-blog-strategy.md";
+  slug: "answering-questions-blog-strategy";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"apple-pay-and-google-pay-redefining-baltics-payments.md": {
+	id: "apple-pay-and-google-pay-redefining-baltics-payments.md";
+  slug: "apple-pay-and-google-pay-redefining-baltics-payments";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"best-ai-tools-for-image-generation-in-2026.md": {
+	id: "best-ai-tools-for-image-generation-in-2026.md";
+  slug: "best-ai-tools-for-image-generation-in-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"best-flexible-work-schedule-jobs-in-the-gig-economy.md": {
+	id: "best-flexible-work-schedule-jobs-in-the-gig-economy.md";
+  slug: "best-flexible-work-schedule-jobs-in-the-gig-economy";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"chatgpt-vs-gemini-the-2026-comparison.md": {
+	id: "chatgpt-vs-gemini-the-2026-comparison.md";
+  slug: "chatgpt-vs-gemini-the-2026-comparison";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"common-mistakes-when-starting-an-ecommerce-business.md": {
+	id: "common-mistakes-when-starting-an-ecommerce-business.md";
+  slug: "common-mistakes-when-starting-an-ecommerce-business";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"content-creation-strategy-increases-sales.md": {
+	id: "content-creation-strategy-increases-sales.md";
+  slug: "content-creation-strategy-increases-sales";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "dev-tech-writer-guide.md": {
 	id: "dev-tech-writer-guide.md";
   slug: "dev-tech-writer-guide";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"does-content-repurposing-actually-help-seo.md": {
+	id: "does-content-repurposing-actually-help-seo.md";
+  slug: "does-content-repurposing-actually-help-seo";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
@@ -166,9 +222,30 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"faqs-about-setting-your-freelance-rates-in-2026.md": {
+	id: "faqs-about-setting-your-freelance-rates-in-2026.md";
+  slug: "faqs-about-setting-your-freelance-rates-in-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"free-seo-tools-that-boost-your-business-in-2026.md": {
+	id: "free-seo-tools-that-boost-your-business-in-2026.md";
+  slug: "free-seo-tools-that-boost-your-business-in-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "gig-work-platform-tactics.md": {
 	id: "gig-work-platform-tactics.md";
   slug: "gig-work-platform-tactics";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"how-to-balance-work-and-study-with-flexible-gigs.md": {
+	id: "how-to-balance-work-and-study-with-flexible-gigs.md";
+  slug: "how-to-balance-work-and-study-with-flexible-gigs";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
@@ -187,9 +264,58 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"how-to-get-your-online-store-recommended-by-ai.md": {
+	id: "how-to-get-your-online-store-recommended-by-ai.md";
+  slug: "how-to-get-your-online-store-recommended-by-ai";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "how-to-increase-productivity-with-ai-tools-2026.md": {
 	id: "how-to-increase-productivity-with-ai-tools-2026.md";
   slug: "how-to-increase-productivity-with-ai-tools-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"how-to-reduce-cart-abandonment-5-easy-steps.md": {
+	id: "how-to-reduce-cart-abandonment-5-easy-steps.md";
+  slug: "how-to-reduce-cart-abandonment-5-easy-steps";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"how-to-repurpose-one-piece-of-content-into-ten.md": {
+	id: "how-to-repurpose-one-piece-of-content-into-ten.md";
+  slug: "how-to-repurpose-one-piece-of-content-into-ten";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"how-to-sell-digital-photos-and-illustrations-online.md": {
+	id: "how-to-sell-digital-photos-and-illustrations-online.md";
+  slug: "how-to-sell-digital-photos-and-illustrations-online";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"how-to-sell-handmade-goods-online-2026.md": {
+	id: "how-to-sell-handmade-goods-online-2026.md";
+  slug: "how-to-sell-handmade-goods-online-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"investing-spare-time-in-micro-gig-jobs.md": {
+	id: "investing-spare-time-in-micro-gig-jobs.md";
+  slug: "investing-spare-time-in-micro-gig-jobs";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"is-motion-worth-the-price-over-reclaim.md": {
+	id: "is-motion-worth-the-price-over-reclaim.md";
+  slug: "is-motion-worth-the-price-over-reclaim";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
@@ -201,9 +327,30 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"personal-vs-business-blog-what-actually-differs.md": {
+	id: "personal-vs-business-blog-what-actually-differs.md";
+  slug: "personal-vs-business-blog-what-actually-differs";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"profit-from-house-2026.md": {
+	id: "profit-from-house-2026.md";
+  slug: "profit-from-house-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "shopify-vs-woocommerce-2026-comparison.md": {
 	id: "shopify-vs-woocommerce-2026-comparison.md";
   slug: "shopify-vs-woocommerce-2026-comparison";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"should-you-sell-on-amazon-or-build-your-own-store-first.md": {
+	id: "should-you-sell-on-amazon-or-build-your-own-store-first.md";
+  slug: "should-you-sell-on-amazon-or-build-your-own-store-first";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
@@ -222,9 +369,58 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"the-complete-guide-to-n8n-in-2026.md": {
+	id: "the-complete-guide-to-n8n-in-2026.md";
+  slug: "the-complete-guide-to-n8n-in-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"the-complete-notion-guide-for-2026.md": {
+	id: "the-complete-notion-guide-for-2026.md";
+  slug: "the-complete-notion-guide-for-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"tips-on-being-effective-while-working-from-home.md": {
+	id: "tips-on-being-effective-while-working-from-home.md";
+  slug: "tips-on-being-effective-while-working-from-home";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"top-5-automation-tools-that-boost-your-work-online.md": {
+	id: "top-5-automation-tools-that-boost-your-work-online.md";
+  slug: "top-5-automation-tools-that-boost-your-work-online";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "top-5-productivity-tools.md": {
 	id: "top-5-productivity-tools.md";
   slug: "top-5-productivity-tools";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"top-free-blogging-platforms-in-2026.md": {
+	id: "top-free-blogging-platforms-in-2026.md";
+  slug: "top-free-blogging-platforms-in-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"top-free-tools-for-keyword-research-in-2026.md": {
+	id: "top-free-tools-for-keyword-research-in-2026.md";
+  slug: "top-free-tools-for-keyword-research-in-2026";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"upwork-vs-fiverr-which-platform-actually-pays-more.md": {
+	id: "upwork-vs-fiverr-which-platform-actually-pays-more.md";
+  slug: "upwork-vs-fiverr-which-platform-actually-pays-more";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
@@ -236,9 +432,30 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"whats-the-difference-between-seo-and-aeo.md": {
+	id: "whats-the-difference-between-seo-and-aeo.md";
+  slug: "whats-the-difference-between-seo-and-aeo";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"why-do-most-dropshipping-businesses-fail.md": {
+	id: "why-do-most-dropshipping-businesses-fail.md";
+  slug: "why-do-most-dropshipping-businesses-fail";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "writing-effective-blog-posts-for-business.md": {
 	id: "writing-effective-blog-posts-for-business.md";
   slug: "writing-effective-blog-posts-for-business";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"youtube-vs-tiktok-for-business-exposure-in-2026.md": {
+	id: "youtube-vs-tiktok-for-business-exposure-in-2026.md";
+  slug: "youtube-vs-tiktok-for-business-exposure-in-2026";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">
