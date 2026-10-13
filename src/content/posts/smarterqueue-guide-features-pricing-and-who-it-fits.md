@@ -19,7 +19,7 @@ This guide covers how SmarterQueue actually works, its main features, what it co
 
 ## How We Evaluated This Guide
 
-<img src="/images/articles/smarterqueue-guide-features-pricing-and-who-it-fits/01.webp" alt="e-store" loading="lazy" width="1200" height="567" />
+<img src="/images/articles/smarterqueue-guide-features-pricing-and-who-it-fits/01.webp" alt="SmarterQueue Guide" loading="lazy" width="1200" height="567" />
 
 This guide is based on published reviews, comparison sites, and vendor information, not on a hands-on test of the tool. That matters in one respect: pricing and plan structure for SmarterQueue are reported inconsistently across sources, because the company appears to have changed its plan lineup recently. Where sources disagree, we say so and tell you what to verify on SmarterQueue's own pricing page before you buy.
 
